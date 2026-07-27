@@ -12,8 +12,11 @@ import summaryBgText from '@/../public/dotted-kihim-text/summary.svg';
 import TextField from '@/components/forms/TextField';
 import Options from '@/components/forms/Options';
 import Slider from '@/components/forms/Slider';
-import { useState,  useEffect } from 'react';
+import { useState,  useEffect, useRef } from 'react';
 import SubmitBtn from './SubmitBtn';
+
+const PAGES_OPTIONS = ['1', '2-5', '6-10', '>10', "I don't know"];
+const TYPES_OPTIONS = ['Informational', 'Web App', 'Ecommerce'];
 
 function ContactForm() {
     const [formData, setFormData] = useState({
@@ -26,14 +29,28 @@ function ContactForm() {
         contact:        'Not Specified',
         additionalInfo: '-'
     });
-    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const [result,       setResult      ] = useState<string> ('');
-    const [dataValid,    setDataValid   ] = useState<boolean>(false);
+    const [convertedData, setConvertedData] = useState(formData);
+    const [isSubmitting,  setIsSubmitting ] = useState<boolean>(false);
+    const [result,        setResult       ] = useState<string> ('');
+    const [dataValid,     setDataValid    ] = useState<boolean>(false);
+
+    function convertValue(value: string, endValues: string[]) {
+        return value.startsWith('_') ?
+        value.substring(1)
+        : ['Not Specified', ...endValues][Number(value)] || 'Not Specified'
+    }
 
     useEffect(() => {
         Object.entries(formData).forEach(([key, value]: string[]) => {
             if (key !== 'additionalInfo' && value === 'Not Specified') setDataValid(false);
             else setDataValid(true);
+        });
+
+        setConvertedData({
+            ...formData,
+            pages: convertValue(formData.pages, PAGES_OPTIONS),
+            type:  convertValue(formData.type,  TYPES_OPTIONS),
+            creativity: `${formData.creativity}%`
         });
     }, [formData]);
 
@@ -58,7 +75,7 @@ function ContactForm() {
 
         const payload = {
             access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-            ...formData,
+            ...convertedData,
             subject: 'New Submission from Contact Form on oryonstudio.dev'
         };
 
@@ -87,7 +104,6 @@ function ContactForm() {
         }
     }
 
-
     return (
         <form className={s.ContactForm} onSubmit={handleSubmit}>
             <HorizontalSection className={s.HorizontalSection} id="form">
@@ -106,7 +122,7 @@ function ContactForm() {
                             <p>If you don't know the exact quantity or you need advice - don't worry! Just click "I don't know". We will assist you with the decision.</p>
                             
                             <div className={s.form}>
-                                <Options options={['1', '2-5', '6-10', '>10', "I don't know"]} handleProgrammaticChange={handleProgrammaticChange} name="pages" custom={true} />
+                                <Options options={PAGES_OPTIONS} handleProgrammaticChange={handleProgrammaticChange} name="pages" custom={true} />
                             </div>
                         </div>
                     </div>
@@ -127,7 +143,7 @@ function ContactForm() {
                             <h2>What type of website are you looking for?</h2>
 
                             <div className={s.form}>
-                                <Options options={['Informational', 'Web App', 'Ecommerce']} handleProgrammaticChange={handleProgrammaticChange} name="type" custom={true} />
+                                <Options options={TYPES_OPTIONS} handleProgrammaticChange={handleProgrammaticChange} name="type" custom={true} />
                             </div>
                         </div>
                     </div>
@@ -207,45 +223,37 @@ function ContactForm() {
                     <div className={s.choices}>
                         <div className={s.choice}>
                             <p className={s.tag}>Pages:</p>
-                            <p>{
-                                formData.pages.startsWith('_') ?
-                                formData.pages.substring(1)
-                                : ['Not Specified', '1', '2-5', '6-10', '>10'][Number(formData.pages)] || 'Not Specified'
-                            }</p>
+                            <p className={s.selected}>{ convertedData.pages }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Type:</p>
-                            <p className={s.selected}>{
-                                formData.type.startsWith('_') ?
-                                formData.type.substring(1)
-                                : ['Not Specified', 'Informational', 'Web Application', 'Ecommerce'][Number(formData.pages)] || 'Not Specified'
-                            }</p>
+                            <p className={s.selected}>{ convertedData.type }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Creativity:</p>
-                            <p className={s.selected}>{`${formData.creativity}%`}</p>
+                            <p className={s.selected}>{ convertedData.creativity }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Your Name:</p>
-                            <p className={s.selected}>{formData.name}</p>
+                            <p className={s.selected}>{ convertedData.name }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Company:</p>
-                            <p className={s.selected}>{formData.company}</p>
+                            <p className={s.selected}>{ convertedData.company }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Industry:</p>
-                            <p className={s.selected}>{formData.industry}</p>
+                            <p className={s.selected}>{ convertedData.industry }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Contact:</p>
-                            <p className={s.selected}>{formData.contact}</p>
+                            <p className={s.selected}>{ convertedData.contact }</p>
                         </div>
                     </div>
                 </div>
