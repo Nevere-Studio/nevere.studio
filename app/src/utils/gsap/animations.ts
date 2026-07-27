@@ -378,6 +378,12 @@ export const fadeUpWords: GSAPAnimation.SplitText = {
 } satisfies GSAPAnimation.SplitText;
 
 // D I V I D E R   A N I M A T I O N
+/**
+ * Animates the divider height
+ * @param target div ref
+ * @param options additional options that can be added to gsap.from() method
+ * @returns `gsap.core.Tween`
+ */
 export const drawDivider: GSAPAnimation = (target, options) => {
     const divider = convertElements(target);
 
