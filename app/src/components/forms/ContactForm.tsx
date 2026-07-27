@@ -12,7 +12,7 @@ import summaryBgText from '@/../public/dotted-kihim-text/summary.svg';
 import TextField from '@/components/forms/TextField';
 import Options from '@/components/forms/Options';
 import Slider from '@/components/forms/Slider';
-import { useState,  useEffect, useRef } from 'react';
+import { useState,  useEffect } from 'react';
 import SubmitBtn from './SubmitBtn';
 
 const PAGES_OPTIONS = ['1', '2-5', '6-10', '>10', "I don't know"];
@@ -32,25 +32,36 @@ function ContactForm() {
     const [convertedData, setConvertedData] = useState(formData);
     const [isSubmitting,  setIsSubmitting ] = useState<boolean>(false);
     const [result,        setResult       ] = useState<string> ('');
-    const [dataValid,     setDataValid    ] = useState<boolean>(false);
 
-    function convertValue(value: string, endValues: string[]) {
-        return value.startsWith('_') ?
-        value.substring(1)
-        : ['Not Specified', ...endValues][Number(value)] || 'Not Specified'
+    function sanitizeText(value: string) {
+        return value === '' ? 'Not Specified' : value;
     }
 
+    function convertValue(value: string, endValues: string[]) {
+        value = sanitizeText(value);
+        return value.startsWith('_') ?
+        value.substring(1)
+        : ['Not Specified', ...endValues][Number(value)] || 'Not Specified';
+    }
+
+    const dataValid = Object.entries(formData).every(([key, value]: string[]) => {
+        if (key === 'additionalInfo') return true;
+        if (value === '') return false;
+        else return value !== 'Not Specified';
+    });
+
     useEffect(() => {
-        Object.entries(formData).forEach(([key, value]: string[]) => {
-            if (key !== 'additionalInfo' && value === 'Not Specified') setDataValid(false);
-            else setDataValid(true);
-        });
+        console.log(dataValid);
 
         setConvertedData({
             ...formData,
-            pages: convertValue(formData.pages, PAGES_OPTIONS),
-            type:  convertValue(formData.type,  TYPES_OPTIONS),
-            creativity: `${formData.creativity}%`
+            pages:      convertValue(formData.pages, PAGES_OPTIONS),
+            type:       convertValue(formData.type,  TYPES_OPTIONS),
+            creativity: `${formData.creativity}%`,
+            name:       sanitizeText(formData.name    ),
+            company:    sanitizeText(formData.company ),
+            industry:   sanitizeText(formData.industry),
+            contact:    sanitizeText(formData.contact )
         });
     }, [formData]);
 
@@ -223,41 +234,41 @@ function ContactForm() {
                     <div className={s.choices}>
                         <div className={s.choice}>
                             <p className={s.tag}>Pages:</p>
-                            <p className={s.selected}>{ convertedData.pages }</p>
+                            <p className={`${s.selected} ${convertedData.pages === 'Not Specified' ? s.invalid : ''}`}>{ convertedData.pages }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Type:</p>
-                            <p className={s.selected}>{ convertedData.type }</p>
+                            <p className={`${s.selected} ${convertedData.type === 'Not Specified' ? s.invalid : ''}`}>{ convertedData.type }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Creativity:</p>
-                            <p className={s.selected}>{ convertedData.creativity }</p>
+                            <p className={`${s.selected}`}>{ convertedData.creativity }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Your Name:</p>
-                            <p className={s.selected}>{ convertedData.name }</p>
+                            <p className={`${s.selected} ${convertedData.name === 'Not Specified' ? s.invalid : ''}`}>{ convertedData.name }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Company:</p>
-                            <p className={s.selected}>{ convertedData.company }</p>
+                            <p className={`${s.selected} ${convertedData.company === 'Not Specified' ? s.invalid : ''}`}>{ convertedData.company }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Industry:</p>
-                            <p className={s.selected}>{ convertedData.industry }</p>
+                            <p className={`${s.selected} ${convertedData.industry === 'Not Specified' ? s.invalid : ''}`}>{ convertedData.industry }</p>
                         </div>
 
                         <div className={s.choice}>
                             <p className={s.tag}>Contact:</p>
-                            <p className={s.selected}>{ convertedData.contact }</p>
+                            <p className={`${s.selected} ${convertedData.contact === 'Not Specified' ? s.invalid : ''}`}>{ convertedData.contact }</p>
                         </div>
                     </div>
                 </div>
-                <SubmitBtn disabled={isSubmitting || !dataValid} />
+                <SubmitBtn disabled={isSubmitting || !dataValid} className={s.submitButton} />
             </Slide>
         </form>
     );

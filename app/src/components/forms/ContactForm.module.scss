@@ -245,7 +245,19 @@
 
             .selected {
                 text-align: right;
+
+                &.invalid {
+                    color: red;
+                    font-weight: 600;
+                }
             }
+        }
+
+        .submitButton {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }
