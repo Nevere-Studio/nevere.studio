@@ -13,7 +13,6 @@ function LoadingPage({ children }: Children) {
     useEffect(() => {
         const handleLoad = () => {
             setLoaded(true);
-            console.log(loaded);
         }
 
         if (document.readyState === 'complete') {

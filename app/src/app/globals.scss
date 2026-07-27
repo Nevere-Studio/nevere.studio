@@ -25,6 +25,8 @@ root {
 
 @layer main {
     html {
+        scroll-behavior: smooth;
+        
         /* S C R O L L B A R */
         $trackColor: #333;
         $thumbColor: #22f;

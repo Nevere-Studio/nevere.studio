@@ -4,12 +4,21 @@
     @include flexAlign(center, center, center);
 
     h1 {
-        color: white;
-        font-family: $googleCode;
-        font-weight: 200;
+        font-weight: 400;
+        width: 70%;
+        margin-inline: auto;
+        font-size: clamp(1.5rem, 0.6rem + 4vw, 7rem);
+    }
 
-        .pointer {
-            @include blink(1.5s);
+    .lead {
+        font-size: clamp(1rem, 0.8364rem + 0.7273vw, 2rem);
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    @media (max-width: 580px) {
+        h1, .lead {
+            width: 90%;
         }
     }
 }
