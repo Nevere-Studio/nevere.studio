@@ -161,3 +161,28 @@ export function useIsVisible<T extends HTMLElement = HTMLElement>(ratio?: number
     return [elRef, isVisible];
 }
 
+// R E F S   C O M B I N A T O R
+/**
+ * Combines many refs, creating one, uniform ref.
+ * @param refs any number of refs
+ * @returns void
+ * 
+ * @example
+ * ```ts
+ * const internalRef = useRef<HTMLDivElement>(null);
+ * const combinedRef = useCombinedRefs(internalRef, externalRef);
+ * 
+ * return <div ref={combinedRef} />;
+ * ```
+ */
+export function useCombinedRefs<T>(...refs: (React.Ref<T> | undefined)[]) {
+    return useRef((node: T) => {
+        refs.forEach((ref) => {
+            if (typeof ref === 'function') {
+                ref(node);
+            } else if (ref && typeof ref === 'object') {
+                (ref as React.RefObject<T | null>).current = node;
+            }
+        });
+    }).current;
+}

@@ -2,22 +2,19 @@
 
 import s from './horizontal-scroll.module.scss';
 import { useRef } from 'react';
-import type { El, Children, Ref } from '@/utils/types';
+import type { El, Core, Ref } from '@/utils/types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useCombinedRefs } from '@/utils/functions';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // S E C T I O N
-interface SectionProps extends Children {
-    className?: string;
-    id?:        string;
-};
-
-export function HorizontalSection({ children, className, id }: SectionProps) {
+export function HorizontalSection({ children, className = '', id, ref }: Core) {
     const sectionRef = useRef<El>(null);
     const wrapperRef = useRef<El.Div>(null);
+    const combinedSectionRef = useCombinedRefs(ref, sectionRef);
 
     useGSAP(() => {
         const wrapper = wrapperRef.current;
@@ -46,7 +43,7 @@ export function HorizontalSection({ children, className, id }: SectionProps) {
     }, { scope: sectionRef });
 
     return (
-        <section ref={sectionRef} className={`${s.section} ${className || ''}`} id={id}>
+        <section ref={combinedSectionRef} className={`${s.section} ${className || ''}`} id={id}>
             <div ref={wrapperRef} className={s.wrapper}>
                 { children }
             </div>
@@ -55,13 +52,7 @@ export function HorizontalSection({ children, className, id }: SectionProps) {
 }
 
 // P A N E L
-interface PanelProps extends Children {
-    className?: string;
-    ref?:       Ref;
-    id?:        string;
-};
-
-export function HorizontalPanel({ children, className, ref, id } : PanelProps) {
+export function HorizontalPanel({ children, className, ref, id } : Core) {
     return (
         <section className={`${className} ${s.panel}`} ref={ref} id={id}>
             {children}
