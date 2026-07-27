@@ -51,8 +51,6 @@ function ContactForm() {
     });
 
     useEffect(() => {
-        console.log(dataValid);
-
         setConvertedData({
             ...formData,
             pages:      convertValue(formData.pages, PAGES_OPTIONS),
