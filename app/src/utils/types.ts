@@ -3,7 +3,7 @@ import _SplitText from 'gsap/SplitText';
 
 gsap.registerPlugin(SplitTextInstance);
 
-// E L E M E N T S
+// S I N G L E   E L E M E N T S
 export type El<T extends HTMLElement = HTMLElement> = HTMLElement;
 
 export namespace El {
@@ -32,6 +32,12 @@ export type Ref<T extends HTMLElement | null = HTMLElement | null> = React.RefOb
 // I N T E R F A C E S
 export interface Children {
     children?: Readonly<React.ReactNode>;
+}
+
+export interface Core extends Children {
+    ref?:       Ref;
+    className?: string;
+    style?:     React.CSSProperties;
 }
 
 export interface LinkProps extends Children {

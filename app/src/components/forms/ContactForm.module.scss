@@ -1,9 +1,12 @@
 @use '../../utils/variables.scss' as *;
 
-.form {
+.ContactForm {
     .question, .summary {
         position: relative;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         .bgText {
             height: 95vh;
@@ -213,4 +216,36 @@
             gap: 0.5rem;
         }
     };
+
+    .summary {
+        .blueRect.br1 {
+            width: 20%;
+            height: 30%;
+            top: 30%;
+            left: 30%;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+
+            .choice {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                line-height: 0;
+                border-bottom: 1px solid #fff5;
+            }
+
+            .tag {
+                font-weight: 500;
+                text-align: left;
+            }
+
+            .selected {
+                text-align: right;
+            }
+        }
+    }
 }

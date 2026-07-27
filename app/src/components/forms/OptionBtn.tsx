@@ -10,7 +10,7 @@ interface Props extends Children {
 
 function OptionBtn({ children, active, className = '', ref, onClick }: Props) {
     return (
-        <button className={`${s.OptionBtn} ${active ? s.active : ''} ${className}`} ref={ref} onClick={onClick}>
+        <button className={`${s.OptionBtn} ${active ? s.active : ''} ${className}`} ref={ref} onClick={onClick} type="button">
             { children }
         </button>
     );

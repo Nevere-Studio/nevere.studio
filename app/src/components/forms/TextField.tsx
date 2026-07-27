@@ -1,9 +1,13 @@
 import s from './forms.module.scss';
-import { InputProps } from './types';
+import { InputProps, HandleChange } from './types';
 
-function TextField({ className = '', ref, name = '', type = 'text', required = false, id = '', placeholder = '' }: InputProps) {
+interface Props extends InputProps {
+    handleChange: HandleChange
+}
+
+function TextField({ className = '', ref, name = '', type = 'text', required = false, id = '', placeholder = '', handleChange }: Props) {
     return (
-        <input className={`${className} ${s.TextField}`} name={name} type={type} required={required} placeholder={placeholder} id={id} ref={ref} />
+        <input className={`${className} ${s.TextField}`} name={name} type={type} required={required} placeholder={placeholder} id={id} ref={ref} onChange={handleChange} />
     );
 }
 

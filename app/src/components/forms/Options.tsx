@@ -3,16 +3,25 @@
 import OptionBtn from './OptionBtn';
 import s from './forms.module.scss';
 import type { Ref, El, Children } from '@/utils/types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import TextField from './TextField';
+import { HandleChange, HandleProgrammaticChange, ChangeEvent } from './types';
 
 interface Props extends Children {
-    options:    string[];
-    className?: string;
-    ref?:       Ref<El.Div>;
+    options:                  string[];
+    custom?:                  boolean;
+    className?:               string;
+    ref?:                     Ref<El.Div>;
+    name:                     string;
+    handleProgrammaticChange: HandleProgrammaticChange;
 }
 
-function Options({ children, options, className='', ref }: Props) {
-    const [active, setActive] = useState(0);
+function Options({ children, options, className='', ref, handleProgrammaticChange, name, custom = false }: Props) {
+    const [active, setActive] = useState<number | string>(0);
+
+    useEffect(() => {
+        handleProgrammaticChange(name, String(active));
+    }, [active]);
 
     return (
         <div className={`${className} ${s.Options}`} ref={ref}>
@@ -27,6 +36,9 @@ function Options({ children, options, className='', ref }: Props) {
                     </OptionBtn>
                 );
             }) }
+
+            { custom ? <TextField name={name} handleChange={(e: ChangeEvent) => setActive(`_${e.target.value}`)} placeholder='Custom' /> : '' }
+
             { children }
         </div>
     )

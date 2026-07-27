@@ -2,15 +2,16 @@
 
 import s from './forms.module.scss';
 import { InputProps } from './types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Props extends InputProps {
-    min?:   number;
-    max?:   number;
-    step?:  number;
+    min?:         number;
+    max?:         number;
+    step?:        number;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
-function Slider({ className = '', ref, name, required = false, id, min = 0, max = 100, step = 10 }: Props) {
+function Slider({ className = '', ref, name, required = false, id, min = 0, max = 100, step = 10, handleChange }: Props) {
     const [value, setValue] = useState((min + max) / 2);
 
     return (
@@ -26,7 +27,10 @@ function Slider({ className = '', ref, name, required = false, id, min = 0, max 
                 max={max} 
                 value={value}
                 step={step}
-                onChange={e => setValue(Number(e.target.value))}
+                onChange={e => {
+                    setValue(Number(e.target.value));
+                    handleChange(e);
+                }}
             />
         </>
     );
