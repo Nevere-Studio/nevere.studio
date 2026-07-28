@@ -233,7 +233,6 @@ function ContactForm() {
         tl.add(revealRight(horizontalPanels[3].modal), '<0.2');
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
-
     return (
         <form className={s.ContactForm} onSubmit={handleSubmit} ref={form}>
             <HorizontalSection className={s.HorizontalSection} id="form" ref={horizontalSection as any}>
@@ -258,6 +257,8 @@ function ContactForm() {
                     </div>
                 </HorizontalPanel>
 
+                <div className={s.margin} />
+
                 <HorizontalPanel ref={horizontalPanels[1].panel}>
                     <div className={`${s.question} ${s.q2}`}>
                         <Image
@@ -278,6 +279,8 @@ function ContactForm() {
                         </div>
                     </div>
                 </HorizontalPanel>
+
+                <div className={s.margin} />
 
                 <HorizontalPanel ref={horizontalPanels[2].panel}>
                     <div className={`${s.question} ${s.q3}`}>
@@ -313,6 +316,8 @@ function ContactForm() {
                     </div>
                 </HorizontalPanel>
 
+                <div className={s.margin} />
+
                 <HorizontalPanel ref={horizontalPanels[3].panel}>
                     <div className={`${s.question} ${s.q4}`}>
                         <Image
@@ -336,6 +341,8 @@ function ContactForm() {
                     </div>
                 </HorizontalPanel>
             </HorizontalSection>
+
+            <div className={s.margin} />
 
             <Slide className={s.summary} ref={summary.panel}>
                 <Image
