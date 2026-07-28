@@ -10,12 +10,13 @@ import q1BgText from '@/../public/dotted-kihim-text/pages.svg';
 import q2BgText from '@/../public/dotted-kihim-text/type.svg';
 import q3BgText from '@/../public/dotted-kihim-text/creativity.svg';
 import q4BgText from '@/../public/dotted-kihim-text/you.svg';
+import q5BgText from '@/../public/dotted-kihim-text/additional-info.svg';
 import summaryBgText from '@/../public/dotted-kihim-text/summary.svg';
 
 // C O M P O N E N T S
 import { HorizontalSection, HorizontalPanel } from '../horizontal-scroll/horizontal-scroll';
 import Slide from '@/components/Slide/Slide';
-import TextField from '@/components/forms/TextField';
+import { TextField, TextArea } from '@/components/forms/TextField';
 import Options from '@/components/forms/Options';
 import Slider from '@/components/forms/Slider';
 import SubmitBtn from './SubmitBtn';
@@ -137,30 +138,34 @@ function ContactForm() {
     const panel2 = useRef<El>(null);
     const panel3 = useRef<El>(null);
     const panel4 = useRef<El>(null);
+    const panel5 = useRef<El>(null);
 
     const modal0 = useRef<El.Div>(null);
     const modal1 = useRef<El.Div>(null);
     const modal2 = useRef<El.Div>(null);
     const modal3 = useRef<El.Div>(null);
     const modal4 = useRef<El.Div>(null);
+    const modal5 = useRef<El.Div>(null);
 
     const blueRects0 = useRef<El.Div[]>([]);
     const blueRects1 = useRef<El.Div[]>([]);
     const blueRects2 = useRef<El.Div[]>([]);
     const blueRects3 = useRef<El.Div[]>([]);
     const blueRects4 = useRef<El.Div[]>([]);
+    const blueRects5 = useRef<El.Div[]>([]);
 
     const horizontalPanels = [
         { panel: panel0, modal: modal0, blueRects: blueRects0 },
         { panel: panel1, modal: modal1, blueRects: blueRects1 },
         { panel: panel2, modal: modal2, blueRects: blueRects2 },
         { panel: panel3, modal: modal3, blueRects: blueRects3 },
+        { panel: panel4, modal: modal4, blueRects: blueRects4 },
     ];
 
     const summary = {
-        panel: panel4,
-        modal: modal4,
-        blueRects: blueRects4
+        panel: panel5,
+        modal: modal5,
+        blueRects: blueRects5
     };
 
     useGSAP(() => {
@@ -252,6 +257,24 @@ function ContactForm() {
         tl.add(revealRight(summary.modal), '<0.2');
     }, { scope: summary.panel });
 
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
+        if (!horizontalTween) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: horizontalPanels[4].panel.current,
+                containerAnimation: horizontalTween,
+                start: '70% 90%',
+                invalidateOnRefresh: true
+            }
+        });
+
+        tl.add(revealDown(horizontalPanels[4].blueRects.current[0]));
+        tl.add(revealLeft(horizontalPanels[4].blueRects.current[1]), '<0.2');
+        tl.add(revealRight(horizontalPanels[4].modal), '<0.2');
+    }, { scope: form, dependencies: [horizontalTween], revertOnUpdate: true });
+
     return (
         <form className={s.ContactForm} onSubmit={handleSubmit} ref={form}>
             <HorizontalSection className={s.HorizontalSection} id="form" ref={horizontalSection} setHorizontalTween={setHorizontalTween}>
@@ -276,8 +299,6 @@ function ContactForm() {
                     </div>
                 </HorizontalPanel>
 
-                <div className={s.margin} />
-
                 <HorizontalPanel ref={horizontalPanels[1].panel}>
                     <div className={`${s.question} ${s.q2}`}>
                         <Image
@@ -298,8 +319,6 @@ function ContactForm() {
                         </div>
                     </div>
                 </HorizontalPanel>
-
-                <div className={s.margin} />
 
                 <HorizontalPanel ref={horizontalPanels[2].panel}>
                     <div className={`${s.question} ${s.q3}`}>
@@ -335,8 +354,6 @@ function ContactForm() {
                     </div>
                 </HorizontalPanel>
 
-                <div className={s.margin} />
-
                 <HorizontalPanel ref={horizontalPanels[3].panel}>
                     <div className={`${s.question} ${s.q4}`}>
                         <Image
@@ -359,9 +376,27 @@ function ContactForm() {
                         </div>
                     </div>
                 </HorizontalPanel>
-            </HorizontalSection>
 
-            <div className={s.margin} />
+                <HorizontalPanel ref={horizontalPanels[4].panel}>
+                    <div className={`${s.question} ${s.q5}`}>
+                        <Image
+                            className={s.bgText}
+                            src={q5BgText}
+                            alt="additional information"
+                        />
+
+                        <div className={`${s.blueRect} ${s.br1}`} ref={(el: HTMLDivElement) => { horizontalPanels[4].blueRects.current[0] = el }} />
+                        <div className={`${s.blueRect} ${s.br2}`} ref={(el: HTMLDivElement) => { horizontalPanels[4].blueRects.current[1] = el }} />
+
+                        <div className={s.modal} ref={horizontalPanels[4].modal}>
+                            <h2>Additional Information</h2>
+                            <div className={s.form}>
+
+                            </div>
+                        </div>
+                    </div>
+                </HorizontalPanel>
+            </HorizontalSection>
 
             <Slide className={s.summary} ref={summary.panel}>
                 <Image
