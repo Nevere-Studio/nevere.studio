@@ -406,11 +406,11 @@ export const revealRight: GSAPAnimation = (target, options) => {
     const convertedTarget = convertElements(target);
 
     return gsap.fromTo(convertedTarget, {
-        clipPath: 'polygon(0% 0%, 0% 100%, 0% 0%, 0% 100%)'
+        clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)'
     }, {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-        duration: 1,
-        ease: 'power4.out',
+        duration: 0.5,
+        ease: 'power2.out',
         ...options
     });
 }
@@ -425,11 +425,11 @@ export const revealLeft: GSAPAnimation = (target, options) => {
     const convertedTarget = convertElements(target);
 
     return gsap.fromTo(convertedTarget, {
-        clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)'
+        clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)'
     }, {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
         duration: 0.5,
-        ease: 'power1.out',
+        ease: 'power2.out',
         ...options
     });
 }
@@ -447,8 +447,8 @@ export const revealDown: GSAPAnimation = (target, options) => {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)'
     }, {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-        duration: 1,
-        ease: 'power4.out',
+        duration: 0.5,
+        ease: 'power2.out',
         ...options
     });
 }
@@ -466,8 +466,8 @@ export const revealUp: GSAPAnimation = (target, options) => {
         clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)'
     }, {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-        duration: 1,
-        ease: 'power4.out',
+        duration: 0.5,
+        ease: 'power2.out',
         ...options
     });
 }
