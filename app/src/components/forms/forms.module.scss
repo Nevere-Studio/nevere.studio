@@ -64,11 +64,9 @@
     background: #000d;
     text-wrap: nowrap;
 
-    &.prior {
-        --lightIntensity: 1;
-        box-shadow: inset 0 0 0 calc($height / 2 * 1.1) $cobaltBlue !important;
-        $font-size: 1.2rem;
-    }
+    --lightIntensity: 1;
+    box-shadow: inset 0 0 0 calc($height / 2 * 1.1) $cobaltBlue !important;
+    $font-size: 1.2rem;
 
     --lightOpacity: 1;
 
