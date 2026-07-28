@@ -38,6 +38,7 @@ export interface Core extends Children {
     ref?:       Ref;
     className?: string;
     style?:     React.CSSProperties;
+    id?:        string;
 }
 
 export interface LinkProps extends Children {

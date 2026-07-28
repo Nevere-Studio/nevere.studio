@@ -1,23 +1,27 @@
 'use client';
 
 import s from './horizontal-scroll.module.scss';
-import { useRef } from 'react';
-import type { El, Children, Ref } from '@/utils/types';
+import { useRef, useImperativeHandle } from 'react';
+import type { El, Core, Ref } from '@/utils/types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// S E C T I O N
-interface SectionProps extends Children {
-    className?: string;
-    id?:        string;
-};
+export interface HorizontalSectionRef {
+    tween: gsap.core.Tween;
+}
 
-export function HorizontalSection({ children, className, id }: SectionProps) {
+// S E C T I O N
+export function HorizontalSection({ children, className = '', id, ref }: Core & { ref: React.Ref<HorizontalSectionRef> }) {
     const sectionRef = useRef<El>(null);
     const wrapperRef = useRef<El.Div>(null);
+    const tweenRef = useRef<gsap.core.Tween>(null);
+
+    useImperativeHandle(ref, () => ({
+        tween: tweenRef.current as gsap.core.Tween
+    }));
 
     useGSAP(() => {
         const wrapper = wrapperRef.current;
@@ -30,7 +34,7 @@ export function HorizontalSection({ children, className, id }: SectionProps) {
             return -(wrapperRef.current!.scrollWidth - window.innerWidth);
         }
 
-        const tween = gsap.to(wrapperRef.current, {
+        tweenRef.current = gsap.to(wrapperRef.current, {
             x: getScrollAmount,
             ease: 'none',
             scrollTrigger: {
@@ -42,7 +46,7 @@ export function HorizontalSection({ children, className, id }: SectionProps) {
             }
         });
 
-        return () => tween.kill();
+        return () => tweenRef.current?.kill();
     }, { scope: sectionRef });
 
     return (
@@ -55,13 +59,7 @@ export function HorizontalSection({ children, className, id }: SectionProps) {
 }
 
 // P A N E L
-interface PanelProps extends Children {
-    className?: string;
-    ref?:       Ref;
-    id?:        string;
-};
-
-export function HorizontalPanel({ children, className, ref, id } : PanelProps) {
+export function HorizontalPanel({ children, className, ref, id } : Core) {
     return (
         <section className={`${className} ${s.panel}`} ref={ref} id={id}>
             {children}

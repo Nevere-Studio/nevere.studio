@@ -378,11 +378,94 @@ export const fadeUpWords: GSAPAnimation.SplitText = {
 } satisfies GSAPAnimation.SplitText;
 
 // D I V I D E R   A N I M A T I O N
+/**
+ * Animates the divider height.
+ * @param target div ref
+ * @param options additional options that can be added to gsap.from() method
+ * @returns `gsap.core.Tween`
+ */
 export const drawDivider: GSAPAnimation = (target, options) => {
     const divider = convertElements(target);
 
     return gsap.from(divider, {
         height: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        ...options
+    });
+}
+
+// R E V E A L   A N I M A T I O N S
+/**
+ * Animates an element horizontally using clip path, grows from left to right.
+ * @param target element ref
+ * @param options additional options to be added to the animation
+ * @returns `gsap.core.tween`
+ */
+export const revealRight: GSAPAnimation = (target, options) => {
+    const convertedTarget = convertElements(target);
+
+    return gsap.fromTo(convertedTarget, {
+        clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)'
+    }, {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        duration: 0.5,
+        ease: 'power2.out',
+        ...options
+    });
+}
+
+/**
+ * Animates an element horizontally using clip path, grows from left to right.
+ * @param target element ref
+ * @param options additional options to be added to the animation
+ * @returns `gsap.core.tween`
+ */
+export const revealLeft: GSAPAnimation = (target, options) => {
+    const convertedTarget = convertElements(target);
+
+    return gsap.fromTo(convertedTarget, {
+        clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)'
+    }, {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        duration: 0.5,
+        ease: 'power2.out',
+        ...options
+    });
+}
+
+/**
+ * Animates an element vertically using clip path, grows from the top to the bottom.
+ * @param target element ref
+ * @param options additional options to be added to the animation
+ * @returns `gsap.core.tween`
+ */
+export const revealDown: GSAPAnimation = (target, options) => {
+    const convertedTarget = convertElements(target);
+
+    return gsap.fromTo(convertedTarget, {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)'
+    }, {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        duration: 0.5,
+        ease: 'power2.out',
+        ...options
+    });
+}
+
+/**
+ * Animates an element vertically using clip path, grows from the bottom to the top.
+ * @param target element ref
+ * @param options additional options to be added to the animation
+ * @returns `gsap.core.tween`
+ */
+export const revealUp: GSAPAnimation = (target, options) => {
+    const convertedTarget = convertElements(target);
+
+    return gsap.fromTo(convertedTarget, {
+        clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)'
+    }, {
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
         duration: 0.5,
         ease: 'power2.out',
         ...options
