@@ -394,7 +394,7 @@ function ContactForm() {
                         </div>
                     </div>
                 </div>
-                <SubmitBtn disabled={isSubmitting || !dataValid} className={s.submitButton} />
+                <SubmitBtn disabled={isSubmitting || !dataValid} className={s.submitButton} label={result} />
             </Slide>
         </form>
     );
