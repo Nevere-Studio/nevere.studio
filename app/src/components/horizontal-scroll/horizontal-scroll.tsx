@@ -1,7 +1,7 @@
 'use client';
 
 import s from './horizontal-scroll.module.scss';
-import { useRef, useImperativeHandle } from 'react';
+import { useRef } from 'react';
 import type { El, Core } from '@/utils/types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,19 +9,15 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export interface HorizontalSectionRef {
-    tween: gsap.core.Tween;
+interface Props extends Core {
+    setHorizontalTween?: (tween: gsap.core.Tween) => void;
 }
 
 // S E C T I O N
-export function HorizontalSection({ children, className = '', id, ref }: Core & { ref: React.Ref<HorizontalSectionRef> }) {
+export function HorizontalSection({ children, className = '', id, ref, setHorizontalTween }: Props) {
     const sectionRef = useRef<El>(null);
     const wrapperRef = useRef<El.Div>(null);
     const tweenRef = useRef<gsap.core.Tween>(null);
-
-    useImperativeHandle(ref, () => ({
-        tween: tweenRef.current as gsap.core.Tween
-    }));
 
     useGSAP(() => {
         const wrapper = wrapperRef.current;
@@ -45,6 +41,8 @@ export function HorizontalSection({ children, className = '', id, ref }: Core & 
                 invalidateOnRefresh: true
             }
         });
+
+        if (setHorizontalTween) setHorizontalTween(tweenRef.current);
 
         return () => tweenRef.current?.kill();
     }, { scope: sectionRef });

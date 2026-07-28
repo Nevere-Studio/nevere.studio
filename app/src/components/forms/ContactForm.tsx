@@ -13,7 +13,7 @@ import q4BgText from '@/../public/dotted-kihim-text/you.svg';
 import summaryBgText from '@/../public/dotted-kihim-text/summary.svg';
 
 // C O M P O N E N T S
-import { HorizontalSection, HorizontalPanel, HorizontalSectionRef } from '../horizontal-scroll/horizontal-scroll';
+import { HorizontalSection, HorizontalPanel } from '../horizontal-scroll/horizontal-scroll';
 import Slide from '@/components/Slide/Slide';
 import TextField from '@/components/forms/TextField';
 import Options from '@/components/forms/Options';
@@ -127,7 +127,9 @@ function ContactForm() {
     }
 
     // A N I M A T I O N S
-    const horizontalSection = useRef<HorizontalSectionRef>(null);
+    const [horizontalTween, setHorizontalTween] = useState<gsap.core.Tween | null>(null);
+
+    const horizontalSection = useRef<El>(null);
     const form = useRef<HTMLFormElement>(null);
 
     const panel0 = useRef<El>(null);
@@ -163,83 +165,76 @@ function ContactForm() {
 
     useGSAP(() => {
         if (typeof window === 'undefined') return;
-        if (!horizontalSection.current || !form.current) return;
-        if (!horizontalPanels[0].panel.current) return;
-        if (!horizontalPanels[0].blueRects.current.length) return;
+        if (!horizontalTween) return;
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: horizontalPanels[0].panel.current,
-                containerAnimation: horizontalSection.current?.tween,
+                containerAnimation: horizontalTween,
                 start: '70% 90%',
-                invalidateOnRefresh: true,
-                immediateRender: true
+                invalidateOnRefresh: true
             }
         });
 
+        console.log(tl.scrollTrigger);
+
         tl.add(revealLeft(horizontalPanels[0].blueRects));
         tl.add(revealDown(horizontalPanels[0].modal), '<0.2');
-    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+    }, { scope: form, dependencies: [horizontalTween] });
 
     useGSAP(() => {
         if (typeof window === 'undefined') return;
-        if (!horizontalSection.current || !form.current) return;
-        if (!horizontalPanels[1].panel.current) return;
+        if (!horizontalTween) return;
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: horizontalPanels[1].panel.current,
-                containerAnimation: horizontalSection.current?.tween,
+                containerAnimation: horizontalTween,
                 start: '70% 90%',
-                invalidateOnRefresh: true,
-                immediateRender: true
+                invalidateOnRefresh: true
             }
         });
 
         tl.add(revealLeft(horizontalPanels[1].blueRects.current[0]));
         tl.add(revealRight(horizontalPanels[1].blueRects.current[1]), '<0.2');
         tl.add(revealLeft(horizontalPanels[1].modal), '<0.2');
-    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+    }, { scope: form, dependencies: [horizontalTween], revertOnUpdate: true });
 
     useGSAP(() => {
         if (typeof window === 'undefined') return;
-        if (!horizontalSection.current || !form.current) return;
-        if (!horizontalPanels[2].panel.current) return;
+        if (!horizontalTween) return;
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: horizontalPanels[2].panel.current,
-                containerAnimation: horizontalSection.current?.tween,
+                containerAnimation: horizontalTween,
                 start: '70% 90%',
-                invalidateOnRefresh: true,
-                immediateRender: true
+                invalidateOnRefresh: true
             }
         });
 
         tl.add(revealDown(horizontalPanels[2].blueRects.current[0]));
         tl.add(revealUp(horizontalPanels[2].blueRects.current[1]), '<0.2');
         tl.add(revealUp(horizontalPanels[2].modal), '<0.2');
-    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+    }, { scope: form, dependencies: [horizontalTween], revertOnUpdate: true });
 
     useGSAP(() => {
         if (typeof window === 'undefined') return;
-        if (!horizontalSection.current || !form.current) return;
-        if (!horizontalPanels[3].panel.current) return;
+        if (!horizontalTween) return;
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: horizontalPanels[3].panel.current,
-                containerAnimation: horizontalSection.current?.tween,
+                containerAnimation: horizontalTween,
                 start: '70% 90%',
-                invalidateOnRefresh: true,
-                immediateRender: true
+                invalidateOnRefresh: true
             }
         });
 
         tl.add(revealDown(horizontalPanels[3].blueRects.current[0]));
         tl.add(revealLeft(horizontalPanels[3].blueRects.current[1]), '<0.2');
         tl.add(revealRight(horizontalPanels[3].modal), '<0.2');
-    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+    }, { scope: form, dependencies: [horizontalTween], revertOnUpdate: true });
 
     useGSAP(() => {
         if (typeof window === 'undefined') return;
@@ -249,8 +244,7 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: summary.panel.current,
                 start: 'top top',
-                invalidateOnRefresh: true,
-                immediateRender: true
+                invalidateOnRefresh: true
             }
         });
 
@@ -260,7 +254,7 @@ function ContactForm() {
 
     return (
         <form className={s.ContactForm} onSubmit={handleSubmit} ref={form}>
-            <HorizontalSection className={s.HorizontalSection} id="form" ref={horizontalSection as any}>
+            <HorizontalSection className={s.HorizontalSection} id="form" ref={horizontalSection} setHorizontalTween={setHorizontalTween}>
                 <HorizontalPanel ref={horizontalPanels[0].panel}>
                     <div className={`${s.question} ${s.q1}`}>
                         <Image
