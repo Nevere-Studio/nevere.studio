@@ -175,7 +175,8 @@ function ContactForm() {
             }
         });
 
-        tl.add(revealDown(horizontalPanels[0].modal));
+        tl.add(revealLeft(horizontalPanels[0].blueRects));
+        tl.add(revealDown(horizontalPanels[0].modal), '<0.2');
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
     useGSAP(() => {
@@ -191,7 +192,9 @@ function ContactForm() {
             }
         });
 
-        tl.add(revealLeft(horizontalPanels[1].modal));
+        tl.add(revealLeft(horizontalPanels[1].blueRects.current[0]));
+        tl.add(revealRight(horizontalPanels[1].blueRects.current[1]), '<0.2');
+        tl.add(revealLeft(horizontalPanels[1].modal), '<0.2');
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
     useGSAP(() => {
@@ -207,7 +210,9 @@ function ContactForm() {
             }
         });
 
-        tl.add(revealUp(horizontalPanels[2].modal));
+        tl.add(revealDown(horizontalPanels[2].blueRects.current[0]));
+        tl.add(revealUp(horizontalPanels[2].blueRects.current[1]), '<0.2');
+        tl.add(revealUp(horizontalPanels[2].modal), '<0.2');
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
     useGSAP(() => {
@@ -223,7 +228,9 @@ function ContactForm() {
             }
         });
 
-        tl.add(revealRight(horizontalPanels[3].modal));
+        tl.add(revealDown(horizontalPanels[3].blueRects.current[0]));
+        tl.add(revealLeft(horizontalPanels[3].blueRects.current[1]), '<0.2');
+        tl.add(revealRight(horizontalPanels[3].modal), '<0.2');
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
 
