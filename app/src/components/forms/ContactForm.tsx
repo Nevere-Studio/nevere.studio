@@ -172,6 +172,8 @@ function ContactForm() {
                 trigger: horizontalPanels[0].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
                 start: '70% 90%',
+                invalidateOnRefresh: true,
+                immediateRender: true
             }
         });
 
@@ -188,7 +190,9 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[1].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: '70% 90%'
+                start: '70% 90%',
+                invalidateOnRefresh: true,
+                immediateRender: true
             }
         });
 
@@ -206,7 +210,9 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[2].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: '70% 90%'
+                start: '70% 90%',
+                invalidateOnRefresh: true,
+                immediateRender: true
             }
         });
 
@@ -224,7 +230,9 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[3].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: '70% 90%'
+                start: '70% 90%',
+                invalidateOnRefresh: true,
+                immediateRender: true
             }
         });
 
@@ -232,6 +240,23 @@ function ContactForm() {
         tl.add(revealLeft(horizontalPanels[3].blueRects.current[1]), '<0.2');
         tl.add(revealRight(horizontalPanels[3].modal), '<0.2');
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
+        if (!summary.panel.current || !form.current) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: summary.panel.current,
+                start: 'top top',
+                invalidateOnRefresh: true,
+                immediateRender: true
+            }
+        });
+
+        tl.add(revealDown(summary.blueRects.current[0]));
+        tl.add(revealRight(summary.modal), '<0.2');
+    }, { scope: summary.panel });
 
     return (
         <form className={s.ContactForm} onSubmit={handleSubmit} ref={form}>
@@ -352,10 +377,8 @@ function ContactForm() {
                 />
 
                 <div className={`${s.blueRect} ${s.br1}`} ref={(el: HTMLDivElement) => { summary.blueRects.current[0] = el }} />
-                <div className={`${s.blueRect} ${s.br2}`} ref={(el: HTMLDivElement) => { summary.blueRects.current[1] = el }} />
-                <div className={`${s.blueRect} ${s.br3}`} ref={(el: HTMLDivElement) => { summary.blueRects.current[2] = el }} />
 
-                <div className={s.modal}>
+                <div className={s.modal} ref={summary.modal}>
                     <h2>Summary</h2>
                     <div className={s.choices}>
                         <div className={s.choice}>
