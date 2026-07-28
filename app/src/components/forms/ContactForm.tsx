@@ -165,6 +165,7 @@ function ContactForm() {
         if (typeof window === 'undefined') return;
         if (!horizontalSection.current || !form.current) return;
         if (!horizontalPanels[0].panel.current) return;
+        if (!horizontalPanels[0].blueRects.current.length) return;
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -174,7 +175,7 @@ function ContactForm() {
             }
         });
 
-        tl.add(revealLeft(horizontalPanels[0].modal));
+        tl.add(revealDown(horizontalPanels[0].modal));
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
     useGSAP(() => {
@@ -186,7 +187,7 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[1].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'left 10%'
+                start: 'left 5%'
             }
         });
 
@@ -202,11 +203,11 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[2].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'left 10%'
+                start: 'left 5%'
             }
         });
 
-        tl.add(revealLeft(horizontalPanels[2].modal));
+        tl.add(revealUp(horizontalPanels[2].modal));
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
     useGSAP(() => {
@@ -218,11 +219,11 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[3].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'left 10%'
+                start: 'left 5%'
             }
         });
 
-        tl.add(revealLeft(horizontalPanels[3].modal));
+        tl.add(revealRight(horizontalPanels[3].modal));
     }, { scope: form, dependencies: [horizontalSection.current?.tween] });
 
 
