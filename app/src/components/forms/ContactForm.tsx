@@ -171,7 +171,7 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[0].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'top top'
+                start: '70% 90%',
             }
         });
 
@@ -188,7 +188,7 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[1].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'left 5%'
+                start: '70% 90%'
             }
         });
 
@@ -206,7 +206,7 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[2].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'left 5%'
+                start: '70% 90%'
             }
         });
 
@@ -224,7 +224,7 @@ function ContactForm() {
             scrollTrigger: {
                 trigger: horizontalPanels[3].panel.current,
                 containerAnimation: horizontalSection.current?.tween,
-                start: 'left 5%'
+                start: '70% 90%'
             }
         });
 
