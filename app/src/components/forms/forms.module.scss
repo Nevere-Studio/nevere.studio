@@ -40,8 +40,9 @@
     line-height: 1.5rem;
     border: 0.3rem solid #22f;
     background: none;
-    flex-grow: 1;
+    width: 100%;
     color: white;
+    box-sizing: border-box;
 }
 
 .flareBtn {

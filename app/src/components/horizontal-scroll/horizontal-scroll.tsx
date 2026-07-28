@@ -2,7 +2,7 @@
 
 import s from './horizontal-scroll.module.scss';
 import { useRef, useImperativeHandle } from 'react';
-import type { El, Core, Ref } from '@/utils/types';
+import type { El, Core } from '@/utils/types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
