@@ -13,7 +13,7 @@ import q4BgText from '@/../public/dotted-kihim-text/you.svg';
 import summaryBgText from '@/../public/dotted-kihim-text/summary.svg';
 
 // C O M P O N E N T S
-import { HorizontalSection, HorizontalPanel } from '../horizontal-scroll/horizontal-scroll';
+import { HorizontalSection, HorizontalPanel, HorizontalSectionRef } from '../horizontal-scroll/horizontal-scroll';
 import Slide from '@/components/Slide/Slide';
 import TextField from '@/components/forms/TextField';
 import Options from '@/components/forms/Options';
@@ -25,6 +25,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger);
+import { revealLeft, revealRight, revealUp, revealDown } from '@/utils/gsap/animations';
 
 const PAGES_OPTIONS = ['1', '2-5', '6-10', '>10', "I don't know"];
 const TYPES_OPTIONS = ['Informational', 'Web App', 'Ecommerce'];
@@ -126,7 +127,8 @@ function ContactForm() {
     }
 
     // A N I M A T I O N S
-    const horizontalSection = useRef<HTMLFormElement>(null);
+    const horizontalSection = useRef<HorizontalSectionRef>(null);
+    const form = useRef<HTMLFormElement>(null);
 
     const panel0 = useRef<El>(null);
     const panel1 = useRef<El>(null);
@@ -159,9 +161,74 @@ function ContactForm() {
         blueRects: blueRects4
     };
 
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
+        if (!horizontalSection.current || !form.current) return;
+        if (!horizontalPanels[0].panel.current) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: horizontalPanels[0].panel.current,
+                containerAnimation: horizontalSection.current?.tween,
+                start: 'top top'
+            }
+        });
+
+        tl.add(revealLeft(horizontalPanels[0].modal));
+    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
+        if (!horizontalSection.current || !form.current) return;
+        if (!horizontalPanels[1].panel.current) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: horizontalPanels[1].panel.current,
+                containerAnimation: horizontalSection.current?.tween,
+                start: 'left 10%'
+            }
+        });
+
+        tl.add(revealLeft(horizontalPanels[1].modal));
+    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
+        if (!horizontalSection.current || !form.current) return;
+        if (!horizontalPanels[2].panel.current) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: horizontalPanels[2].panel.current,
+                containerAnimation: horizontalSection.current?.tween,
+                start: 'left 10%'
+            }
+        });
+
+        tl.add(revealLeft(horizontalPanels[2].modal));
+    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+
+    useGSAP(() => {
+        if (typeof window === 'undefined') return;
+        if (!horizontalSection.current || !form.current) return;
+        if (!horizontalPanels[3].panel.current) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: horizontalPanels[3].panel.current,
+                containerAnimation: horizontalSection.current?.tween,
+                start: 'left 10%'
+            }
+        });
+
+        tl.add(revealLeft(horizontalPanels[3].modal));
+    }, { scope: form, dependencies: [horizontalSection.current?.tween] });
+
+
     return (
-        <form className={s.ContactForm} onSubmit={handleSubmit}>
-            <HorizontalSection className={s.HorizontalSection} id="form" ref={horizontalSection}>
+        <form className={s.ContactForm} onSubmit={handleSubmit} ref={form}>
+            <HorizontalSection className={s.HorizontalSection} id="form" ref={horizontalSection as any}>
                 <HorizontalPanel ref={horizontalPanels[0].panel}>
                     <div className={`${s.question} ${s.q1}`}>
                         <Image
@@ -194,7 +261,7 @@ function ContactForm() {
                         <div className={`${s.blueRect} ${s.br1}`} ref={(el: HTMLDivElement) => { horizontalPanels[1].blueRects.current[0] = el }} />
                         <div className={`${s.blueRect} ${s.br2}`} ref={(el: HTMLDivElement) => { horizontalPanels[1].blueRects.current[1] = el }} />
 
-                        <div className={s.modal} ref={horizontalPanels[0].modal}>
+                        <div className={s.modal} ref={horizontalPanels[1].modal}>
                             <h2>What type of website are you looking for?</h2>
 
                             <div className={s.form}>
@@ -215,7 +282,7 @@ function ContactForm() {
                         <div className={`${s.blueRect} ${s.br1}`} ref={(el: HTMLDivElement) => { horizontalPanels[2].blueRects.current[0] = el }} />
                         <div className={`${s.blueRect} ${s.br2}`} ref={(el: HTMLDivElement) => { horizontalPanels[2].blueRects.current[1] = el }} />
 
-                        <div className={s.modal} ref={horizontalPanels[0].modal}>
+                        <div className={s.modal} ref={horizontalPanels[2].modal}>
                             <h2>How creative do you want it to be?</h2>
                             <div className={s.sliderModule}>
                                 <div className={s.sliderWrapper}>
@@ -249,7 +316,7 @@ function ContactForm() {
                         <div className={`${s.blueRect} ${s.br1}`} ref={(el: HTMLDivElement) => { horizontalPanels[3].blueRects.current[0] = el }} />
                         <div className={`${s.blueRect} ${s.br2}`} ref={(el: HTMLDivElement) => { horizontalPanels[3].blueRects.current[1] = el }} />
 
-                        <div className={s.modal} ref={horizontalPanels[0].modal}>
+                        <div className={s.modal} ref={horizontalPanels[3].modal}>
                             <h2>Your information</h2>
                             <div className={s.form}>
                                 <TextField placeholder='Full Name'   name="name"     handleChange={handleChange} />
