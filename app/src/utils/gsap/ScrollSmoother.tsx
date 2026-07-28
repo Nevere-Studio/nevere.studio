@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
@@ -16,6 +16,7 @@ interface Props {
 function ScrollSmootherWrapper({ children, effects = false}: Props) {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
+    const [mounted, setMounted] = useState(false);
 
     useGSAP(() => {
         if (typeof window === 'undefined') return;

@@ -1,20 +1,27 @@
 'use client';
 
 import s from './horizontal-scroll.module.scss';
-import { useRef } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 import type { El, Core, Ref } from '@/utils/types';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { useCombinedRefs } from '@/utils/functions';
 
 gsap.registerPlugin(ScrollTrigger);
 
+export interface HorizontalSectionRef {
+    tween: gsap.core.Tween;
+}
+
 // S E C T I O N
-export function HorizontalSection({ children, className = '', id, ref }: Core) {
+export function HorizontalSection({ children, className = '', id, ref }: Core & { ref: React.Ref<HorizontalSectionRef> }) {
     const sectionRef = useRef<El>(null);
     const wrapperRef = useRef<El.Div>(null);
-    const combinedSectionRef = useCombinedRefs(ref, sectionRef);
+    const tweenRef = useRef<gsap.core.Tween>(null);
+
+    useImperativeHandle(ref, () => ({
+        tween: tweenRef.current as gsap.core.Tween
+    }));
 
     useGSAP(() => {
         const wrapper = wrapperRef.current;
@@ -27,7 +34,7 @@ export function HorizontalSection({ children, className = '', id, ref }: Core) {
             return -(wrapperRef.current!.scrollWidth - window.innerWidth);
         }
 
-        const tween = gsap.to(wrapperRef.current, {
+        tweenRef.current = gsap.to(wrapperRef.current, {
             x: getScrollAmount,
             ease: 'none',
             scrollTrigger: {
@@ -39,11 +46,11 @@ export function HorizontalSection({ children, className = '', id, ref }: Core) {
             }
         });
 
-        return () => tween.kill();
+        return () => tweenRef.current?.kill();
     }, { scope: sectionRef });
 
     return (
-        <section ref={combinedSectionRef} className={`${s.section} ${className || ''}`} id={id}>
+        <section ref={sectionRef} className={`${s.section} ${className || ''}`} id={id}>
             <div ref={wrapperRef} className={s.wrapper}>
                 { children }
             </div>
