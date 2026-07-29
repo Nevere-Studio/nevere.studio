@@ -2,7 +2,7 @@
 
 import s from './forms.module.scss';
 import { Core, Ref, El } from '@/utils/types';
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap, CSSPlugin } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -30,7 +30,8 @@ function SubmitBtn({ className, ref, style, disabled, label }: Props) {
             })
             .to(labelText.current, {
                 width: 'auto',
-                marginInline: 24
+                marginInline: 24,
+                delay: 1
             });
         }
     }, { dependencies: [label] });

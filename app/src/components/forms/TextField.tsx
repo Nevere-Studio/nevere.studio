@@ -12,8 +12,8 @@ export function TextField({ className = '', ref, name = '', type = 'text', requi
     );
 }
 
-export function TextArea({ className = '', ref, name = '', required = false, id = '', placeholder = '', handleChange }: Props & { ref: Ref<HTMLTextAreaElement> }) {
+export function TextArea({ className = '', ref, name = '', required = false, id = '', placeholder = '', handleChange }: Props & { ref?: Ref<HTMLTextAreaElement> }) {
     return (
-        <textarea className={`${className} ${s.TextArea}`} name={name} required={required} id={id} placeholder={placeholder} ref={ref}></textarea>
+        <textarea className={`${className} ${s.TextArea}`} name={name} required={required} id={id} placeholder={placeholder} ref={ref} onChange={handleChange} />
     )
 }

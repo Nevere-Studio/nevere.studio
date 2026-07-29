@@ -45,7 +45,7 @@ function ContactForm() {
     });
     const [convertedData, setConvertedData] = useState(formData);
     const [isSubmitting,  setIsSubmitting ] = useState<boolean>(false);
-    const [result,        setResult       ] = useState<string> ('');
+    const [result,        setResult       ] = useState<string>('');
 
     function sanitizeText(value: string) {
         return value === '' ? 'Not Specified' : value;
@@ -73,7 +73,8 @@ function ContactForm() {
             name:       sanitizeText(formData.name    ),
             company:    sanitizeText(formData.company ),
             industry:   sanitizeText(formData.industry),
-            contact:    sanitizeText(formData.contact )
+            contact:    sanitizeText(formData.contact ),
+            additionalInfo: formData.additionalInfo
         });
     }, [formData]);
 
@@ -390,8 +391,10 @@ function ContactForm() {
 
                         <div className={s.modal} ref={horizontalPanels[4].modal}>
                             <h2>Additional Information</h2>
+                            <p>Please specify all the information that matter when building the website. The more you enter, the easier and more personalized the process will be.</p>
+                            <p>E.g.: website goal (for instance conversion or contact), brand identity, qualities, slogan...</p>
                             <div className={s.form}>
-
+                                <TextArea handleChange={handleChange} name='additionalInfo' placeholder='Message' />
                             </div>
                         </div>
                     </div>
