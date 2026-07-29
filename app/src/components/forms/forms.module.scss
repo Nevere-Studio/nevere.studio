@@ -32,7 +32,8 @@
     flex-wrap: wrap;
 }
 
-.TextField {
+.TextField, .TextArea {
+    font-family: $nohemi;
     border: none;
     padding: 1.5rem;
     border-radius: 0.75rem;

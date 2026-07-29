@@ -4,8 +4,8 @@ import OptionBtn from './OptionBtn';
 import s from './forms.module.scss';
 import type { Ref, El, Children } from '@/utils/types';
 import { useState, useEffect } from 'react';
-import TextField from './TextField';
-import { HandleChange, HandleProgrammaticChange, ChangeEvent } from './types';
+import { TextField } from './TextField';
+import { HandleProgrammaticChange, ChangeEvent } from './types';
 
 interface Props extends Children {
     options:                  string[];
