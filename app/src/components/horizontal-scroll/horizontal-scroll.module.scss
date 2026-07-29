@@ -11,12 +11,11 @@
         height: 100%;
         width: fit-content;
         gap: clamp(0rem, 26.1818rem - 16.3636vw, 22.5rem);
-        margin-inline: 5vw;
     }
 }
 
 .panel {
-    width: 100vw;
+    width: 110vw;
     height: 100vh;
     flex-shrink: 0;
     display: flex;
