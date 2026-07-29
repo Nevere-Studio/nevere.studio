@@ -44,7 +44,7 @@ $hamburger-thickness: 0.3rem;
     .TopBar, .BottomBar {
       width: $hamburger-size;
       height: $hamburger-thickness;
-      background: $electricBlue;
+      background: $blue;
       position: absolute;
       border-radius: calc($hamburger-thickness / 3);
       transform-origin: 0 50%;
