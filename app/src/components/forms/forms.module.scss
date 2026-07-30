@@ -150,10 +150,10 @@
         border-radius: calc(var(--height) / 2);
         align-items: center;
         font-size: 1rem;
-        overflow: hidden;
 
         .labelText {
             width: 0;
+            overflow: hidden;
         }
     }
 }
