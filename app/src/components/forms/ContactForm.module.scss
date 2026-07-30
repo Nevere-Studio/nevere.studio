@@ -1,6 +1,11 @@
 @use '../../utils/variables.scss' as *;
+@use 'sass:color';
 
 .ContactForm {
+    .HorizontalSection {
+        background-color: $deepSky;
+    }
+
     .question, .summary {
         position: relative;
         text-align: center;
@@ -233,6 +238,8 @@
     }
 
     .summary {
+        background: color.scale($deepSky, $lightness: -20%);
+
         .blueRect.br1 {
             width: 300px;
             height: 50%;
