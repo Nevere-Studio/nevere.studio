@@ -3,6 +3,8 @@ import Slide from '@/components/Slide/Slide';
 import { useTranslations } from 'next-intl';
 import LiquidPlasma from '@/components/shaders/LiquidPlasma';
 import ContactForm from '@/components/forms/ContactForm';
+import emailBg from '@/../public/dotted-kihim-text/email.svg';
+import Image from 'next/image';
 
 const s = styles;
 
@@ -20,6 +22,16 @@ function Contact() {
             </Slide>
 
             <ContactForm />
+
+            <Slide className={s.DirectContact}>
+                <Image
+                    src={emailBg}
+                    alt='email'
+                    className={s.bgImg}
+                />
+                <h2>Direct contact</h2>
+                <p className={s.email}>contact@oryonstudio.dev</p>
+            </Slide>
         </>
     );
 }

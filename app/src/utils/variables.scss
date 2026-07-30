@@ -1,4 +1,11 @@
 // A L I G N
+@mixin center() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @mixin gridAlign($horizontally: center, $vertically: center, $text: left) {
     align-self: $vertically;
     justify-self: $horizontally;

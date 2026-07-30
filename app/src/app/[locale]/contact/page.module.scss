@@ -22,3 +22,37 @@
         }
     }
 }
+
+.DirectContact {
+    background: $obsidianGrey;
+    position: relative;
+    padding: 10vw;
+
+    .bgImg {
+        height: 95%;
+        width: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-55%, -50%);
+    }
+
+    
+
+    h2 {
+        font-weight: 100;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+    }
+
+    .email {
+        font-family: $nohemi;
+        font-weight: 200;
+        font-size: 5vw;
+        position: absolute;
+        @include center;
+        transform: translate(-50%, -150%)
+    }
+
+
+}
