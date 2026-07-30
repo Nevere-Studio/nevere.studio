@@ -42,7 +42,7 @@ function Contact() {
             }
         });
         tl.add(revealWipe(directContactH2));
-        tl.add(magneticPull.animate(splitEmail));
+        tl.add(magneticPull.animate(splitEmail), '<0.5');
     }, { scope: directContactSlide });
 
     return (
