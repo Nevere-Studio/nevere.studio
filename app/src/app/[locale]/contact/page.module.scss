@@ -51,7 +51,8 @@
         font-size: 5vw;
         position: absolute;
         @include center;
-        transform: translate(-50%, -150%)
+        transform: translate(-50%, -150%);
+        text-wrap: nowrap;
     }
 
 
