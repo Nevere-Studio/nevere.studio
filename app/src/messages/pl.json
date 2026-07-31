@@ -25,7 +25,11 @@
             "description": "Tworzymy ultraszybkie, zachwycające wizualnie strony i aplikacje internetowe w Next.js. Projektujemy unikalne doświadczenia cyfrowe dla marek, które chcą się wyróżnić."
         },
         "content": {
-            "page under construction": "strona w budowie"
+            "availability": "Dostępny na wybrane projekty w Q3/Q4.",
+            "hero": ["Najwyższy standard dla ", "nieszablonowych marek"],
+            "lead": ["Nevere Studio tworzy strony Next.js dla marek, które chcą się wyróżnić. Łączymy ", "spersonalizowany design", " z ", "nowoczesną architekturą React", " aby dostarczać szybkie i oryginalne witryny budowane ", "od podstaw"],
+            "cta": "Pracuj z nami",
+            "starting_from": "Od 5000 zł"
         }
     },
 

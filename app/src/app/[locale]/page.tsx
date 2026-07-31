@@ -18,12 +18,12 @@ function Home() {
         <Slide className={s.Hero}>
           <LiquidAurora />
           <section className={s.content}>
-            <p className={s.availability}><span className={s.indicator}></span><span className={s.text}>Available for select Q3/Q4 projects</span></p>
-            <h1>The cosmic standard for <strong>standout brands</strong></h1>
-            <p className={s.lead}>Nevere Studio builds custom Next.js web applications for brands that refuse to look generic. We pair <strong>custom front-end design</strong> with <strong>modern React architecture</strong> to deliver fast, standalone sites built <strong>strictly from scratch</strong>.</p>
+            <p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('availability') }</span></p>
+            <h1>{ t('hero.0') }<strong>{ t('hero.1') }</strong></h1>
+            <p className={s.lead}>{ t('lead.0') }<strong>{ t('lead.1') }</strong>{ t('lead.2') }<strong>{ t('lead.3') }</strong>{ t('lead.4') }<strong>{ t('lead.5') }</strong>.</p>
             <LabelButton 
               href="/contact" 
-              dualLabel={{ internal: 'Work with Us', external: 'Starting from $2000' }}
+              dualLabel={{ internal: t('cta'), external: t('starting_from') }}
               className={s.cta}
             />
             <CollabsMarquee className={s.marquee} />
