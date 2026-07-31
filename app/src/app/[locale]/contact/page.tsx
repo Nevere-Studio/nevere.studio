@@ -64,7 +64,7 @@ function Contact() {
                     className={s.bgImg}
                 />
                 <h2 ref={directContactH2}>{ t('direct_contact') }</h2>
-                <p ref={email} className={s.email}>contact@oryonstudio.dev</p>
+                <p ref={email} className={s.email}>contact@nevere.studio</p>
             </Slide>
         </>
     );
