@@ -5,22 +5,19 @@ import { LinkTemplate } from '@/utils/types';
 import CypherLink from '@/components/links/cypher';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useIsVisible } from "@/utils/functions";
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { El } from '@/utils/types';
 import { charsSlideIn, magneticPull, drawDivider, revealWipe, fadeUpWords } from '@/utils/gsap/animations';
-import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const s = styles;
 
 function Footer() {
-    const [footer, isFooterVisible] = useIsVisible(0.75);
-
+    const footer       = useRef<El>    (null);
     const logo         = useRef<El.A>  (null);
     const slogan       = useRef<El.P>  (null);
     const availability = useRef<El.P>  (null);
@@ -32,9 +29,9 @@ function Footer() {
 
     const links: LinkTemplate[] = [
         { href: '/',           label: t('links.home')       },
-        { href: '/about',      label: t('links.about')      },
-        { href: '/experience', label: t('links.experience') },
-        { href: '/services',   label: t('links.services')   },
+        // { href: '/about',      label: t('links.about')      },
+        // { href: '/experience', label: t('links.experience') },
+        // { href: '/services',   label: t('links.services')   },
         { href: '/contact',    label: t('links.contact')    }
     ];
 
