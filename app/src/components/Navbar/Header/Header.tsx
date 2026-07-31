@@ -3,7 +3,7 @@
 import styles from './Header.module.scss';
 import { useState, useEffect } from 'react';
 import { Link } from '@/i18n/navigation';
-import LogoDraw from '@/components/LogoDraw';
+import Image from 'next/image';
 
 const s = styles;
 
@@ -78,11 +78,9 @@ function Header({ setSidebarOpen, sidebarOpen }: Props) {
                 if (hamburgerState) setHasInteracted(true);
                 setHamburgerState(false);
             }}>
-                <LogoDraw 
-                    active={!headerHidden}
-                    strokeWidth={20}
-                    color='#0a21ff'
-                />
+                <div className={s.full} />
+                <div className={s.short} />
+                <div className={s.condensed} />
             </Link>
 
             <button className={hamburgerClassName} onClick={toggleHamburger}>

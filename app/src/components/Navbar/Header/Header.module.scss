@@ -21,9 +21,33 @@ $hamburger-thickness: 0.3rem;
   transition: transform 0.5s ease-out;
 
   .logo {
-    height: 6rem;
     width: auto;
     display: inline-block;
+    $logoColor: #2222ff;
+
+    .full {
+      @include maskImage(url('/logo_full.svg'), $logoColor, 2.5rem, 2447 / 256);
+
+      @media (max-width: 530px) {
+        display: none;
+      }
+    }
+
+    .short {
+      @include maskImage(url('/logo_condensed.svg'), $logoColor, 2.5rem, 1465 / 256);
+
+      @media (min-width: 529px) or (max-width: 370px) {
+        display: none;
+      }
+    }
+
+    .condensed {
+      @include maskImage(url('/logo_ultracondensed.svg'), $logoColor, 2.5rem, 1162 / 256);
+
+      @media (min-width: 371px) {
+        display: none;
+      }
+    }
   }
 
   .Hamburger {
