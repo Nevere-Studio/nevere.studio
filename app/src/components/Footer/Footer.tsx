@@ -21,6 +21,7 @@ const s = styles;
 function Footer() {
     const [footer, isFooterVisible] = useIsVisible(0.75);
 
+    const logo         = useRef<El.A>  (null);
     const slogan       = useRef<El.P>  (null);
     const availability = useRef<El.P>  (null);
     const divider      = useRef<El.Div>(null);
@@ -42,6 +43,7 @@ function Footer() {
     useGSAP(() => {
         if (typeof window == 'undefined') return;
         if (
+            !logo.current         ||
             !footer.current       || 
             !slogan.current       || 
             !availability.current || 
@@ -64,18 +66,19 @@ function Footer() {
         });
 
         tl.add(magneticPull.animate(splitSlogan));
-        tl.add(charsSlideIn.animate(splitAvailability), "<0.1");
-        tl.add(drawDivider(divider), '<0.5');
+        tl.add(revealWipe(logo), '<');
+        tl.add(charsSlideIn.animate(splitAvailability), "<0");
+        tl.add(drawDivider(divider), '<0.1');
         tl.add(revealWipe(linksRef, { stagger: 0.2 }), '<0.1');
         tl.add(fadeUpWords.animate(splitAuthor), '<0.1');
-        tl.add(fadeUpWords.animate(splitCopyright), '<0.2');
+        tl.add(fadeUpWords.animate(splitCopyright), '<0.1');
     }, { scope: footer });
 
     return (
         <footer className={s.Footer} ref={footer}>
             <section className={s.MainSection}>
                 <div className={s.info}>
-                    <Link href="/" className={s.logo} />
+                    <Link href="/" className={s.logo} ref={logo} />
                     <p className={s.slogan} ref={slogan} dangerouslySetInnerHTML={{ __html: t('slogan') }}></p>
                     <p className={s.availability}><span className={s.indicator}></span><span className={s.text} ref={availability} dangerouslySetInnerHTML={{ __html: t('availability') }}></span></p>
                 </div>
