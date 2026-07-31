@@ -45,7 +45,65 @@
             "description": "We craft high-performance, visually stunning websites using Next.js. Tailored digital experiences for ambitious brands looking to stand out."
         },
         "content": {
-            "page under construction": "page under construction"
+            "hero": "Let's Build Something Out of This World",
+            "lead": "Fill out the form below or send a direct email. We respond to qualified inqueries within 24 hours.",
+            "form": {
+                "not_specified": "Not Specified",
+                "success": "Form Submitted Successfully!",
+                "something_went_wrong": "Something went wrong. Please try again or email us directly.",
+                "error": "An error occured. Please try again or email us directly.",
+                "custom": "Custom",
+                "question1": {
+                    "question": "How many pages will your website need?",
+                    "tip": "Not sure yet? No problem - select 'I don't know' and we'll help you figure it out based on your goals.",
+                    "answers": {
+                        "i_dont_know": "I don't know"
+                    }
+                },
+                "question2": {
+                    "question": "What type of website are you looking to build?",
+                    "answers": {
+                        "informational": "Informational",
+                        "web_app": "Web App",
+                        "ecommerce": "Ecommerce"
+                    }
+                },
+                "question3": {
+                    "question": "How creative do you want it to be?",
+                    "answers": {
+                        "0%": "Regular website",
+                        "50%": "Creative, but simple",
+                        "100%": "Artistic"
+                    }
+                },
+                "question4": {
+                    "question": "Your Information",
+                    "answers": {
+                        "full_name": "Full Name",
+                        "company": "Company",
+                        "industry": "Industry",
+                        "contact": "Email"
+                    }
+                },
+                "question5": {
+                    "question": "Additional Information",
+                    "tip1": "Please specify all the information that matter when building the website. The more you enter, the easier and more personalized the process will be.",
+                    "tip2": "E.g.: website goal (for instance conversion or engagement), brand identity, qualities, slogan...",
+                    "message": "Message"
+                },
+                "summary": {
+                    "heading": "Summary",
+                    "pages": "Pages:",
+                    "type": "Type:",
+                    "creativity": "Creativity:",
+                    "full_name": "Your Name:",
+                    "company": "Company:",
+                    "industry": "Industry:",
+                    "contact": "Contact:",
+                    "submit": "Submit"
+                }
+            },
+            "direct_contact": "Direct Contact"
         }
     },
 

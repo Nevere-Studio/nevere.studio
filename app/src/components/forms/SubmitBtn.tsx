@@ -4,7 +4,8 @@ import s from './forms.module.scss';
 import { Core, Ref, El } from '@/utils/types';
 import { useRef } from 'react';
 import { gsap, CSSPlugin } from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@gsap/react'
+import { useTranslations } from 'next-intl';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -15,6 +16,8 @@ interface Props extends Core {
 
 function SubmitBtn({ className, ref, style, disabled, label }: Props) {
     const labelText = useRef<El.P>(null);
+
+    const t = useTranslations('contact.content.form.summary');
 
     useGSAP(() => {
         if (label == '') {
@@ -48,7 +51,7 @@ function SubmitBtn({ className, ref, style, disabled, label }: Props) {
                         disabled={Boolean(disabled)}
                         type='submit'
                     > 
-                        Submit
+                        { t('submit') }
                     </button>
                 </div>
                 <p className={s.labelText} style={label !== '' ? { width: 'fit-content' } : { paddingRight: 0 }} ref={labelText}>

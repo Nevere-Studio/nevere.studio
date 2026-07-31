@@ -50,8 +50,8 @@ function Contact() {
             <Slide className={s.Hero} ref={hero}>
                 <LiquidPlasma />
                 <div className={s.content}>
-                    <h1 ref={h1}>Let's Build Something Out of This World</h1>
-                    <p ref={lead} className={s.lead}>Fill out the form below or send a direct email. We respond to qualified inqueries within 24 hours.</p>
+                    <h1 ref={h1}>{ t('hero') }</h1>
+                    <p ref={lead} className={s.lead}>{ t('lead') }</p>
                 </div>
             </Slide>
 
@@ -63,7 +63,7 @@ function Contact() {
                     alt='email'
                     className={s.bgImg}
                 />
-                <h2 ref={directContactH2}>Direct contact</h2>
+                <h2 ref={directContactH2}>{ t('direct_contact') }</h2>
                 <p ref={email} className={s.email}>contact@oryonstudio.dev</p>
             </Slide>
         </>

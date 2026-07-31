@@ -45,7 +45,65 @@
             "description": "Tworzymy ultraszybkie, zachwycające wizualnie strony i aplikacje internetowe w Next.js. Projektujemy unikalne doświadczenia cyfrowe dla marek, które chcą się wyróżnić."
         },
         "content": {
-            "page under construction": "strona w budowie"
+            "hero": "Zbudujmy Coś Nie z Tego Świata",
+            "lead": "Wypełnij poniższy formularz lub wyślij email. Odpowiadamy na zakwalifikowane zgłoszenia w ciągu 24 godzin.",
+            "form": {
+                "not_specified": "Nie Podano",
+                "success": "Formularz Pomyślnie Przesłany",
+                "something_went_wrong": "Coś poszło nie tak. Spróbuj ponownie lub skontaktuj się z nami przez email.",
+                "error": "Wystąpił błąd.  Spróbuj ponownie lub skontaktuj się z nami przez email.",
+                "custom": "Inna Odpowiedź",
+                "question1": {
+                    "question": "Ile stron potrzebujesz?",
+                    "tip": "Nie jesteś pewien? Nie ma problemu - zaznacz 'Nie wiem', a my pomożemy Ci zdecydować bazując na twoich celach.",
+                    "answers": {
+                        "i_dont_know": "Nie wiem"
+                    }
+                },
+                "question2": {
+                    "question": "Jakiego typu stronę potrzebujesz?",
+                    "answers": {
+                        "informational": "Informacyjna",
+                        "web_app": "Aplikacja",
+                        "ecommerce": "Ecommerce"
+                    }
+                },
+                "question3": {
+                    "question": "Jak bardzo kreatywną chcesz stronę?",
+                    "answers": {
+                        "0%": "Zwykła strona",
+                        "50%": "Kreatywna, ale minimalistyczna",
+                        "100%": "Artystyczna"
+                    }
+                },
+                "question4": {
+                    "question": "Twoje Dane",
+                    "answers": {
+                        "full_name": "Imię i nazwisko",
+                        "company": "Firma",
+                        "industry": "Branża",
+                        "contact": "Email"
+                    }
+                },
+                "question5": {
+                    "question": "Dodatkowe Informacje",
+                    "tip1": "Podaj wszystkie informacje, które mogą mieć znaczenie przy budowie strony. Im więcej wprowadzisz, tym szybszy i bardziej spersonalizowany będzie proces.",
+                    "tip2": "Przykłady: cel strony (np. konwersja lub wyświetlenia), tożsamość marki, wartości, slogan...",
+                    "message": "Wiadomość"
+                },
+                "summary": {
+                    "heading": "Podsumowanie",
+                    "pages": "Liczba stron:",
+                    "type": "Typ:",
+                    "creativity": "Kreatywność:",
+                    "full_name": "Imię i nazwisko",
+                    "company": "Firma:",
+                    "industry": "Branża:",
+                    "contact": "Kontakt:",
+                    "submit": "Zatwierdź"
+                }
+            },
+            "direct_contact": "Bezpośredni Kontakt"
         }
     },
 

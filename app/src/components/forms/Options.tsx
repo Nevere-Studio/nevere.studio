@@ -6,6 +6,7 @@ import type { Ref, El, Children } from '@/utils/types';
 import { useState, useEffect } from 'react';
 import { TextField } from './TextField';
 import { HandleProgrammaticChange, ChangeEvent } from './types';
+import { useTranslations } from 'next-intl';
 
 interface Props extends Children {
     options:                  string[];
@@ -18,6 +19,8 @@ interface Props extends Children {
 
 function Options({ children, options, className='', ref, handleProgrammaticChange, name, custom = false }: Props) {
     const [active, setActive] = useState<number | string>(0);
+
+    const t = useTranslations('contact.content.form');
 
     useEffect(() => {
         handleProgrammaticChange(name, String(active));
@@ -37,7 +40,7 @@ function Options({ children, options, className='', ref, handleProgrammaticChang
                 );
             }) }
 
-            { custom ? <TextField name={name} handleChange={(e: ChangeEvent) => setActive(`_${e.target.value}`)} placeholder='Custom' /> : '' }
+            { custom ? <TextField name={name} handleChange={(e: ChangeEvent) => setActive(`_${e.target.value}`)} placeholder={t('custom')} /> : '' }
 
             { children }
         </div>
