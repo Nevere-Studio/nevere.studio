@@ -4,7 +4,6 @@ import styles from "./Footer.module.scss";
 import { LinkTemplate } from '@/utils/types';
 import CypherLink from '@/components/links/cypher';
 import { useTranslations } from 'next-intl';
-import LogoDraw from "@/components/LogoDraw";
 import Link from 'next/link';
 import { useIsVisible } from "@/utils/functions";
 import { useRef } from 'react';
@@ -13,6 +12,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { El } from '@/utils/types';
 import { charsSlideIn, magneticPull, drawDivider, revealWipe, fadeUpWords } from '@/utils/gsap/animations';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,14 +75,7 @@ function Footer() {
         <footer className={s.Footer} ref={footer}>
             <section className={s.MainSection}>
                 <div className={s.info}>
-                    <Link href="/" className={s.logo}>
-                        <LogoDraw 
-                            active={isFooterVisible}
-                            color="#ffff"
-                            duration={2}
-                            delay={0.1}
-                        />
-                    </Link>
+                    <Link href="/" className={s.logo} />
                     <p className={s.slogan} ref={slogan} dangerouslySetInnerHTML={{ __html: t('slogan') }}></p>
                     <p className={s.availability}><span className={s.indicator}></span><span className={s.text} ref={availability} dangerouslySetInnerHTML={{ __html: t('availability') }}></span></p>
                 </div>

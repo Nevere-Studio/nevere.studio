@@ -28,7 +28,7 @@
 
         .info {
             .logo {
-                height: 7rem;
+                @include maskImage(url('/logo_full.svg'), #fff, 2rem, 2447 / 256);
             }
 
             .slogan {
