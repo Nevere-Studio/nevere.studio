@@ -47,10 +47,11 @@
         font-family: $generalSans;
         overflow: hidden;
 
-        .oryon, .studio {
+        .nevere, .studio {
             display: inline-block;
             transform: translateY(0);
             animation: slideDown 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            letter-spacing: 0.5rem;
         }
 
         .studio {
@@ -58,7 +59,7 @@
             animation-delay: 0s;
         }
 
-        .oryon {
+        .nevere {
             font-weight: 400;
             animation-delay: 0.1s;
         }

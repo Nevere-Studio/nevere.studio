@@ -124,7 +124,7 @@ function TransitionProvider({ children }: Children) {
                 )) }
 
                 <div className={s.branding}>
-                    <h1 ref={headingRef}><span className={s.oryon} ref={ el => { wordsRef.current[0] = el }}>ORYON</span><span className={s.studio} ref={el => { wordsRef.current[1] = el }}>STUDIO</span></h1>
+                    <h1 ref={headingRef}><span className={s.nevere} ref={ el => { wordsRef.current[0] = el }}>NEVERE</span><span className={s.studio} ref={el => { wordsRef.current[1] = el }}>STUDIO</span></h1>
                     <div className={s.orion}>
                         <Orion active={orionActive} starColor='#333' pathColor='#333' />
                     </div>

@@ -33,7 +33,7 @@ function LoadingPage({ children }: Children) {
 
                 <div className={s.branding}>
                     <h1>
-                        <span className={s.oryon} >ORYON</span>
+                        <span className={s.nevere}>NEVERE</span>
                         <span className={s.studio}>STUDIO</span>
                     </h1>
                 </div>

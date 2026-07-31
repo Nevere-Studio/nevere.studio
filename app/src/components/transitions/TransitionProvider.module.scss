@@ -45,12 +45,13 @@
         overflow: hidden;
         pointer-events: none;
 
-        .oryon, .studio {
+        .nevere, .studio {
             display: inline-block;
             transform: translateY(100%);
+            letter-spacing: 0.5rem;
         }
 
-        .oryon {
+        .nevere {
             font-weight: 400;
         }
 
