@@ -16,6 +16,7 @@ export namespace El {
   export type Btn  = HTMLButtonElement;
   export type Div  = HTMLDivElement;
   export type A    = HTMLAnchorElement;
+  export type Img  = HTMLImageElement;
 }
 
 // E L E M E N T S
@@ -65,14 +66,16 @@ export interface DeviceSpecs {
 // G S A P   A N I M A T I O N   T Y P E S
 export type GSAPAnimation<T extends HTMLElement | null = any> = (
     el: Elements,
-    options?: gsap.TweenVars
+    options1?: gsap.TweenVars,
+    options2?: gsap.TweenVars
 ) => gsap.core.Tween | gsap.core.Timeline;
 
 export namespace GSAPAnimation {
     export namespace SplitText {
         export type Prepare = (
             el: Ref<El.Text | null> | Ref<El.Text | null>[],
-            options?: gsap.TweenVars
+            options1?: gsap.TweenVars,
+            options2?: gsap.TweenVars
         ) => SplitTextInstance;
 
         export type Animate = (
