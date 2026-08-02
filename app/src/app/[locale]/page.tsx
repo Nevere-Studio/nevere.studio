@@ -76,7 +76,7 @@ function Home() {
 			scrollTrigger: {
 				trigger: section.current,
 				start: 'top top',
-				end: '+=10000',
+				end: '+=7000',
 				pin: true,
 				scrub: 1
 			}
@@ -95,19 +95,21 @@ function Home() {
 		}, 0);
 
 		tl.from(imgs.current[2], {
-			x: '110%',
+			y: '110vh',
 			duration: 0.75,
 			ease: 'power4.out'
-		}, '-=0.6');
+		}, '-=0.4');
 
 		tl.to(imgs.current.slice(0, 3), {
-			y: '-100vh',
+			y: '-110vh',
 			duration: 0.5,
 		}, '-=0.5');
 
-		tl.from(bsMobile.current, {
-			y: '100vh',
-			duration: 0.5
+		tl.fromTo(bsMobile.current, {
+			y: '110vh',
+		}, {
+			y: '-110vh',
+			duration: 0.75
 		}, '<');
 
 		tl.to(imgs.current.slice(3, 6), {
@@ -115,6 +117,39 @@ function Home() {
 			ease: 'power4.out',
 			duration: 0.5
 		}, '<');
+
+		tl.to(projects.current[0], {
+			top: '-50%',
+			left: '-2rem',
+			scale: 0.7,
+			opacity: 0.5,
+			duration: 0.1,
+			ease: 'power4.in'
+		}, '-=0.5');
+
+		tl.to(projects.current[1], {
+			top: 'calc(50% - 0.75rem)',
+			left: '1rem',
+			scale: 1,
+			opacity: 1,
+			duration: 0.1,
+			ease: 'power4.in'
+		}, '<');
+
+		tl.fromTo(imgs.current[6], {
+			y: '110vh'
+		}, {
+			y: 0,
+			duration: 0.5
+		}, '<');
+
+		tl.fromTo(imgs.current[7], {
+			y: '110vh'
+		}, {
+			y: '40vh',
+			duration: 0.5
+		}, '-=0.5');
+
 	}, { scope: work.section });
 
 	return (
@@ -210,6 +245,26 @@ function Home() {
 							ref={el => { work.imgs.current[5] = el }}
 						/>
 					</div>
+
+					<Image
+						src={srDesktop}
+						alt=""
+						width={1920}
+						height={1280}
+						placeholder="blur"
+						className={`${s.img} ${s.srDesktop}`}
+						ref={el => { work.imgs.current[6] = el }}
+					/>
+
+					<Image
+						src={srTablet}
+						alt=""
+						width={1920}
+						height={1280}
+						placeholder="blur"
+						className={`${s.img} ${s.srTablet}`}
+						ref={el => { work.imgs.current[7] = el }}
+					/>
 				</div>
 				</GridSlide>
 			</main>
