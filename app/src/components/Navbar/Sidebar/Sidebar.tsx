@@ -60,9 +60,9 @@ function Sidebar({ open, setSidebarOpen } : Props) {
 
     const links: LinkTemplate[] = useMemo(() => [
         { href: '/',           label: t('home')       },
-        { href: '/about',      label: t('about')      },
-        { href: '/experience', label: t('experience') },
-        { href: '/services',   label: t('services')   },
+        // { href: '/about',      label: t('about')      },
+        // { href: '/experience', label: t('experience') },
+        // { href: '/services',   label: t('services')   },
         { href: '/contact',    label: t('contact')    }
     ], [t]);
 

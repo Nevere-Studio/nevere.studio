@@ -5,6 +5,25 @@ import type { El, GSAPAnimation } from '@/utils/types';
 
 gsap.registerPlugin(SplitText, CSSPlugin);
 
+export const fadeInRight: GSAPAnimation<El> = (el, fromOptions, toOptions) => {
+    const target = convertElements(el);
+
+    const tween = gsap.fromTo(target, {
+        x: -50,
+        opacity: 0,
+        ...fromOptions
+    }, {
+        x: 0,
+        opacity: 1,
+        ease: 'power2.out',
+        duration: 0.6,
+        stagger: 0.2,
+        ...toOptions
+    });
+
+    return tween;
+}
+
 /**
  * A reusable GSAP slide-in with skew animation.
  * @param el element to be animated; can be anything of type `Elements`
