@@ -10,12 +10,12 @@ interface Props extends Children {
     style?: React.CSSProperties;
 }
 
-function Slide({ children, className, ref, id, style } : Props) {
+function GridSlide({ children, className, ref, id, style } : Props) {
     return (
-        <section className={`${className} ${s.Slide}`} ref={ref} id={id} style={style}>
+        <section className={`${className} ${s.GridSlide}`} ref={ref} id={id} style={style}>
             {children}
         </section>
     );
 }
 
-export default Slide;
+export default GridSlide;

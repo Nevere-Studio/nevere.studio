@@ -1,6 +1,6 @@
 @use './../../utils/variables.scss' as *;
 
-.slide {
+.Slide {
     width: 100%;
     min-height: 100lvh;
     box-sizing: border-box;
@@ -8,16 +8,17 @@
     display: grid;
     grid-template-columns: 1fr;
     padding: 5vh clamp(1rem, 5vw, 10vw) 15vh clamp(1rem, 5vw, 10vw);
+}
 
-    .ScrollDownButton {
-        position: absolute;
-        bottom: 5%;
-        left: 0;
-        right: 0;
-        width: auto;
-    } 
+.GridSlide {
+    $columnsNumber: 12;
+    $columnGap: 1rem;
+    display: grid;
+    grid-template-columns: repeat($columnsNumber, 1fr);
+    column-gap: $columnGap;
 
-    & > :not(.ScrollDownButton) {
-        grid-area: 1 / 1;
-    }
+    width: 100%;
+    min-height: 100lvh;
+    box-sizing: border-box;
+    position: relative;
 }

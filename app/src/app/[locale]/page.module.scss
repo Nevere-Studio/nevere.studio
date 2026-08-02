@@ -83,3 +83,136 @@
         }
     }
 }
+
+.Work {
+    background: linear-gradient(
+        in oklch 60deg,
+        #121552,
+        #00000D
+    );
+
+    h2 {
+        font-size: 15vw;
+        font-weight: 300;
+        grid-column: 2 / 12;
+        margin: 10svh 0 0 0;
+        height: fit-content;
+    }
+
+    .project {
+        grid-column: 2 / 6;
+        align-self: center;
+        margin-bottom: auto;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .sr, .bs {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .lineTop, .lineBottom {
+            height: 1px;
+            background: #fff;
+        }
+
+        .lineTop {
+            grid-column: 2 / 5;
+            width: calc(3 * 100vw / 12);
+            margin-bottom: 3.5rem;
+        }
+
+        .lineBottom {
+            grid-column: 2 / 6;
+            width: 100%;
+        }
+
+        .active {
+            position: absolute;
+            top: calc(50% - 0.75rem);
+            left: 1rem;
+        }
+
+        .inactive {
+            position: absolute;
+            bottom: -80%;
+            left: -2rem;
+            transform: translateY(0) scale(0.7);
+            opacity: 0.5;
+        }
+    }
+
+    .images {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 70vw;
+        height: 85vh;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .img, .bsMobile {
+            width: 100%;
+            height: auto;
+            grid-area: 1 / 1;
+            
+
+            &.BsHero {
+                clip-path: polygon(-100% -100%, -100% 200%, 200% 200%, 200% -100%);
+                filter: 
+                    drop-shadow(0 0 50px #000) 
+                    drop-shadow(0 0 50px #000);
+            }
+
+            &.BsContact {
+                clip-path: polygon(-100% -100%, -100% 200%, 200% 200%, -100% 200%);
+                filter: 
+                    drop-shadow(0 0 50px #000) 
+                    drop-shadow(0 0 50px #000);
+            }
+
+            &.bsProcess {
+                filter: 
+                    drop-shadow(0 0 50px #000) 
+                    drop-shadow(0 0 50px #000);
+            }
+
+            &.srDesktop {
+                width: 100%;
+                height: auto;
+                filter: 
+                    drop-shadow(0 0 50px #000) 
+                    drop-shadow(0 0 50px #000);
+            }
+
+            &.srTablet {
+                width: 60%;
+                height: auto;
+                margin-left: auto;
+                filter: 
+                    drop-shadow(0 0 50px #000) 
+                    drop-shadow(0 0 50px #000);
+            }
+        }
+
+        .bsMobile {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: end;
+
+            .img {
+                width: calc(100% / 3);
+                height: auto;
+                filter:
+                    drop-shadow(0 0 50px #000a) 
+                    drop-shadow(0 0 50px #000f);
+            }
+        }
+    }
+}
