@@ -82,23 +82,25 @@ function Home() {
 			}
 		});
 
-		tl.fromTo(imgs.current[0], {
-			clipPath: 'polygon(-50% 150%, 150% 150%, 150% -50%, -50% -50%)',
-		}, {
-			clipPath: 'polygon(-50% -50%, 150% -50%, 150% -50%, -50% -50%)',
+		tl.to(imgs.current[1], {
+			clipPath: 'polygon(-5% -5%, -5% 105%, 105% 105%, 105% -5%)',
 			duration: 0.75,
 			ease: 'power4.out'
 		});
 
-		tl.fromTo(imgs.current[1], {
-			clipPath: 'polygon(-50% 150%, 150% 150%, 150% 150%, -50% 150%)',
-		}, {
-			clipPath: 'polygon(-50% 150%, 150% 150%, 150% -50%, -50% -50%)',
+		tl.to(imgs.current[0], {
+			clipPath: 'polygon(-5% -5%, 105% -5%, 105% 105%, 105% -5%)',
 			duration: 0.75,
 			ease: 'power4.out'
 		}, 0);
 
-		tl.to(imgs.current.slice(0, 2), {
+		tl.from(imgs.current[2], {
+			y: '110vh',
+			duration: 0.75,
+			ease: 'power4.out'
+		}, '-=0.4');
+
+		tl.to(imgs.current.slice(0, 3), {
 			y: '-110vh',
 			duration: 0.5,
 		}, '-=0.5');
@@ -110,7 +112,7 @@ function Home() {
 			duration: 0.75
 		}, '<');
 
-		tl.to(imgs.current.slice(2, 5), {
+		tl.to(imgs.current.slice(3, 6), {
 			y: gsap.utils.wrap([50, 0, -50]),
 			ease: 'power4.out',
 			duration: 0.5
@@ -134,12 +136,14 @@ function Home() {
 			ease: 'power4.in'
 		}, '<');
 
-		tl.from(imgs.current[5], {
-			y: '110vh',
+		tl.fromTo(imgs.current[6], {
+			y: '110vh'
+		}, {
+			y: 0,
 			duration: 0.5
 		}, '<');
 
-		tl.fromTo(imgs.current[6], {
+		tl.fromTo(imgs.current[7], {
 			y: '110vh'
 		}, {
 			y: '40vh',
@@ -200,19 +204,19 @@ function Home() {
 						ref={el => { work.imgs.current[1] = el }}
 					/>
 
+					<Image
+						src={bsProcessDesktop}
+						alt=""
+						width={1920}
+						height={1280}
+						placeholder="blur"
+						className={`${s.img} ${s.BsProcess}`}
+						ref={el => { work.imgs.current[2] = el }}
+					/>
+
 					<div className={s.bsMobile} ref={bsMobile}>
 						<Image
 							src={bsMobile1}
-							alt=""
-							width={1080}
-							height={1920}
-							placeholder="blur"
-							className={`${s.img}`}
-							ref={el => { work.imgs.current[2] = el }}
-						/>
-
-						<Image
-							src={bsMobile2}
 							alt=""
 							width={1080}
 							height={1920}
@@ -222,13 +226,23 @@ function Home() {
 						/>
 
 						<Image
-							src={bsMobile3}
+							src={bsMobile2}
 							alt=""
 							width={1080}
 							height={1920}
 							placeholder="blur"
 							className={`${s.img}`}
 							ref={el => { work.imgs.current[4] = el }}
+						/>
+
+						<Image
+							src={bsMobile3}
+							alt=""
+							width={1080}
+							height={1920}
+							placeholder="blur"
+							className={`${s.img}`}
+							ref={el => { work.imgs.current[5] = el }}
 						/>
 					</div>
 
@@ -239,7 +253,7 @@ function Home() {
 						height={1280}
 						placeholder="blur"
 						className={`${s.img} ${s.srDesktop}`}
-						ref={el => { work.imgs.current[5] = el }}
+						ref={el => { work.imgs.current[6] = el }}
 					/>
 
 					<Image
@@ -249,7 +263,7 @@ function Home() {
 						height={1280}
 						placeholder="blur"
 						className={`${s.img} ${s.srTablet}`}
-						ref={el => { work.imgs.current[6] = el }}
+						ref={el => { work.imgs.current[7] = el }}
 					/>
 				</div>
 				</GridSlide>
