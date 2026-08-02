@@ -2,7 +2,7 @@
 
 import s from './page.module.scss';
 import { useTranslations } from 'next-intl';
-import { El, Ref } from '@/utils/types';
+import { El } from '@/utils/types';
 
 import ScrollSmootherWrapper from '@/utils/gsap/ScrollSmoother';
 import Footer from '@/components/Footer/Footer';
