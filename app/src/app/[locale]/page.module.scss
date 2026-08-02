@@ -163,14 +163,14 @@
             
 
             &.BsHero {
-                clip-path: polygon(-100% -100%, -100% 200%, 200% 200%, 200% -100%);
+                clip-path: polygon(0.0% 0.0%, 100.0% 0.0%, 100.0% 100.0%, 0.0% 100.0%);
                 filter: 
                     drop-shadow(0 0 50px #000) 
                     drop-shadow(0 0 50px #000);
             }
 
             &.BsContact {
-                clip-path: polygon(-100% -100%, -100% 200%, 200% 200%, -100% 200%);
+                clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
                 filter: 
                     drop-shadow(0 0 50px #000) 
                     drop-shadow(0 0 50px #000);
