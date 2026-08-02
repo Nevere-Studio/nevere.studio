@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss";
 import { LinkTemplate } from '@/utils/types';
 import CypherLink from '@/components/links/cypher';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";

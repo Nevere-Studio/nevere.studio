@@ -2,7 +2,7 @@
 
 import s from './links.module.scss';
 import type { LinkProps } from '@/utils/types';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { gsap } from 'gsap';
 
