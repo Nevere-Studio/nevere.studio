@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.scss";
-import { Raleway, Poppins, Google_Sans_Code } from "next/font/google";
+import { Google_Sans_Code } from "next/font/google";
 import localFont from 'next/font/local';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/next";
