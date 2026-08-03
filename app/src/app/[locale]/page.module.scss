@@ -216,3 +216,18 @@
         }
     }
 }
+
+.MoreComingSoon {
+    background: $obsidianGrey;
+    min-height: 50vh !important;
+    padding: 2rem !important;
+    @include flexAlign;
+
+    h2 {
+        width: fit-content;
+        text-align: center;
+        margin-inline: auto;
+        font-weight: 100;
+        letter-spacing: 0.2rem;
+    }
+}

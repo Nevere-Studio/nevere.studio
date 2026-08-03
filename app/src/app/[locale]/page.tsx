@@ -264,7 +264,9 @@ function Home() {
 					<SectionTransition color="#161616" />
 				</div>
 				
-				<GridSlide style={{ background: "#161616" }} />
+				<Slide className={s.MoreComingSoon}>
+					<h2>More content coming soon...</h2>
+				</Slide>
 			</main>
 			<Footer />
 		</ScrollSmootherWrapper>
