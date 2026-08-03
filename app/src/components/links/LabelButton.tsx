@@ -1,6 +1,6 @@
 import type { LinkProps } from '@/utils/types';
-import { Link } from '@/i18n/navigation';
 import styles from './links.module.scss';
+import MaskBtn from '@/components/links/MaskBtn';
 
 const s = styles;
 
@@ -8,20 +8,22 @@ interface Props extends LinkProps {
     dualLabel: {
         internal: string;
         external?: string;
-    }
+    },
+    type?: 'internal' | 'external',
 }
 
-function LabelButton({ href, ref, className, dualLabel, style }: Props) {
+function LabelButton({ href, ref, className, dualLabel, style, type }: Props) {
     return (
         <div className={`${s.labelBtn} ${className}`} style={style}>
-            <Link
-                href={href}
+            <MaskBtn 
+                href={href} 
+                type={type}
                 ref={ref}
-                className={s.btn}
             >
                 { dualLabel.internal }
-            </Link>
-            <div className={s.label}>
+            </MaskBtn>
+
+            <div className={s.externalLabel}>
                 { dualLabel.external }
             </div>
         </div>

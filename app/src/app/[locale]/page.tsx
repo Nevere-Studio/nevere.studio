@@ -12,11 +12,11 @@ import GridSlide from '@/components/Slide/GridSlide';
 import LiquidAurora from '@/components/shaders/LiquidAurora';
 import LabelButton from '@/components/links/LabelButton';
 import CollabsMarquee from '@/components/marquee/CollabsMarquee';
+import MaskBtn from '@/components/links/MaskBtn';
 
 import Image from 'next/image';
 import bsHeroDesktop    from '@/../public/mockups/bs_macbook.png';
 import bsContactDesktop from '@/../public/mockups/bs_contact_macbook.png';
-import bsProcessDesktop from '@/../public/mockups/bs_process_macbook.png';
 import bsMobile1        from '@/../public/mockups/bs_hero_iphone.png';
 import bsMobile2        from '@/../public/mockups/bs_cards_iphone.png';
 import bsMobile3        from '@/../public/mockups/bs_gallery_iphone.png';
@@ -161,10 +161,13 @@ function Home() {
 						<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('availability') }</span></p>
 						<h1>{ t('hero.0') }<strong>{ t('hero.1') }</strong></h1>
 						<p className={s.lead}>{ t('lead.0') }<strong>{ t('lead.1') }</strong>{ t('lead.2') }<strong>{ t('lead.3') }</strong>{ t('lead.4') }<strong>{ t('lead.5') }</strong>.</p>
-						<LabelButton 
-						href="/contact" 
-						dualLabel={{ internal: t('cta'), external: t('starting_from') }}
-						className={s.cta}
+						<LabelButton
+							dualLabel={{
+								internal: t('cta'),
+								external: t('starting_from')
+							}} 
+							href="/contact" 
+							className={s.cta}
 						/>
 						<CollabsMarquee className={s.marquee} />
 					</section>
@@ -255,8 +258,6 @@ function Home() {
 							ref={el => { work.imgs.current[7] = el }}
 						/>
 					</div>
-				</GridSlide>
-
 				</GridSlide>
 			</main>
 			<Footer />

@@ -17,7 +17,6 @@
     background: #4445;
     backdrop-filter: blur(5px);
     font-size: 1.3rem;
-    line-height: 1.3rem;
     display: flex;
     flex-wrap: no-wrap;
     padding-right: 1rem;
@@ -25,17 +24,9 @@
     border-radius: 2rem;
     align-items: center;
 
-    .btn {
-        padding: 1rem 1.5rem;
-        border-radius: 1.5rem;
-        background: $cobaltBlue;
-        color: white;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    .label {
+    .externalLabel {
         font-size: 1.1rem;
+        line-height: 1;
         font-weight: 100;
         margin-inline: 1.5rem;
     }
@@ -154,7 +145,7 @@
     background: none;
     color: white;
 
-    padding: $padding-block $padding-inline;
+    padding: $padding-block $padding-inline !important;
     font-size: $font-size;
     line-height: 1;
     border-radius: calc(#{$height} / 2);

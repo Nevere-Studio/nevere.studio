@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation';
 import ArrowRightIcon from '@iconify-react/mdi/arrow-right';
 
 interface Props extends LinkProps {
-    type: 'internal' | 'external'
+    type?: 'internal' | 'external'
 }
 
 function MaskBtn(props: Props) {
@@ -19,7 +19,7 @@ function MaskBtn(props: Props) {
             typeClass = s.external;
             break;
         default:
-            typeClass = '';
+            typeClass = s.internal;
             break;
     }
 
