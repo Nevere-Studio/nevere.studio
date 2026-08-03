@@ -186,3 +186,29 @@ export function useCombinedRefs<T>(...refs: (React.Ref<T> | undefined)[]) {
         });
     }).current;
 }
+
+// C S S   H E L P E R S
+/**
+ * Creates a polygon string for CSS clip-path property based on the key and offset provided.
+ * @param key 'full' | 'left' | 'right' | 'top' | 'bottom' | [number, number][]; 'full' means that the polygon will cover the whole element, other keys are intended for animations - they will not cover the element at all. You can also specify an array of coordinates in percentage.
+ * @param offset number; determines the offset of the points (e.g. 5 means that points will be 5% outside of the element)
+ * @returns polygon string for CSS clip-path property
+ */
+export function polygon(key: 'full' | 'top' | 'bottom' | 'left' | 'right' | [number, number][], offset: number = 0): string {
+    let polygon = '';
+
+    switch (key) {
+        case 'full':
+            return `polygon(${0 - offset}% ${0 - offset}%, ${100 + offset}% ${0 - offset}%, ${100 + offset}% ${100 + offset}%, ${0 - offset}% ${100 + offset}%)`;
+        case 'top':
+            return `polygon(${0 - offset}% ${0 - offset}%, ${100 + offset}% ${0 - offset}%, ${100 + offset}% ${0 - offset}%, ${0 - offset}% ${0 - offset}%)`;
+        case 'bottom':
+            return `polygon(${0 - offset}% ${100 + offset}%, ${100 + offset}% ${100 + offset}%, ${100 + offset}% ${100 + offset}%, ${0 - offset}% ${100 + offset}%)`;
+        case 'left':
+            return `polygon(${0 - offset}% ${0 - offset}%, ${0 - offset}% ${0 - offset}%, ${0 - offset}% ${100 + offset}%, ${0 - offset}% ${100 + offset}%)`;
+        case 'right':
+            return `polygon(${100 + offset}% ${0 - offset}%, ${100 + offset}% ${0 - offset}%, ${100 + offset}% ${100 + offset}%, ${100 + offset}% ${100 + offset}%)`;
+        default:
+            return `polygon(${key[0][0]}% ${key[0][1]}%, ${key[1][0]}% ${key[1][1]}%, ${key[2][0]}% ${key[2][1]}%, ${key[3][0]}% ${key[3][1]}%)`
+    }
+}
