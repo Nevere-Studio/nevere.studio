@@ -1,8 +1,7 @@
-'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import { DeviceSpecs } from '@/utils/types';
 import { Elements } from './types';
+import { useTranslations } from 'next-intl';
 
 
 // E L E M E N T S   C O N V E R S I O N
@@ -210,5 +209,14 @@ export function polygon(key: 'full' | 'top' | 'bottom' | 'left' | 'right' | [num
             return `polygon(${100 + offset}% ${0 - offset}%, ${100 + offset}% ${0 - offset}%, ${100 + offset}% ${100 + offset}%, ${100 + offset}% ${100 + offset}%)`;
         default:
             return `polygon(${key[0][0]}% ${key[0][1]}%, ${key[1][0]}% ${key[1][1]}%, ${key[2][0]}% ${key[2][1]}%, ${key[3][0]}% ${key[3][1]}%)`
+    }
+}
+
+// I N T E R N A T I O N A L I Z A T I O N
+export function useRichText(t: ReturnType<typeof useTranslations>) {
+    return function(key: string) {
+        return t.rich(key, {
+            bold: chunks => <strong>{ chunks }</strong>
+        })
     }
 }

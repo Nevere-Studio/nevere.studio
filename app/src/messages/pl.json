@@ -35,7 +35,13 @@
             },
             "work": {
                 "heading": "Realizacje"
-            }
+            },
+            "cta": {
+                "heading": "Masz pomysł na projekt? <bold>Skontaktujmy się</bold>.",
+                "p": "Obecnie przyjmujemy wybranych klientów. Minimalny budżet: 5000 zł",
+                "btn": "Zacznijmy Projekt"
+            },
+            "more_coming_soon": "Więcej wkrótce..."
         }
     },
 

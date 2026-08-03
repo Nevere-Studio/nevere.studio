@@ -3,7 +3,7 @@
 import s from './page.module.scss';
 import { useTranslations } from 'next-intl';
 import { El } from '@/utils/types';
-import { polygon } from '@/utils/functions';
+import { polygon, useRichText } from '@/utils/functions';
 
 import ScrollSmootherWrapper from '@/utils/gsap/ScrollSmoother';
 import Footer from '@/components/Footer/Footer';
@@ -32,7 +32,8 @@ gsap.registerPlugin(CSSPlugin, ScrollTrigger);
 import { fadeUpWords, revealWipe, skewIn } from '@/utils/gsap/animations';
 
 function Home() {
-	const t = useTranslations('home.content');
+	const t  = useTranslations('home.content');
+	const rt = useRichText(t);
 
 	const workSection  = useRef<El>    (null);
 	const workHeading  = useRef<El.H>  (null);
@@ -160,12 +161,8 @@ function Home() {
 					<LiquidAurora />
 					<section className={s.content}>
 						<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('hero.availability') }</span></p>
-						<h1>{ t.rich('hero.heading', {
-							bold: chunks => <strong>{ chunks }</strong>
-						})}</h1>
-						<p className={s.lead}>{ t.rich('hero.lead', {
-							bold: chunks => <strong>{ chunks }</strong>
-						}) }</p>
+						<h1>{ rt('hero.heading')}</h1>
+						<p className={s.lead}>{ rt('hero.lead') }</p>
 						<LabelButton
 							dualLabel={{
 								internal: t('hero.cta'),
@@ -270,13 +267,13 @@ function Home() {
 				</div>
 
 				<Slide className={s.Cta}>
-					<h2>Got a project in mind? <strong>Let's talk.</strong></h2>
-					<p>Currently accepting select clients. Minimum engagement: $2000</p>
-					<MaskBtn href="/contact" className={s.btn}>Start a Project</MaskBtn>
+					<h2>{ rt('cta.heading') }</h2>
+					<p>{ rt('cta.p') }</p>
+					<MaskBtn href="/contact" className={s.btn}>{ t('cta.btn') }</MaskBtn>
 				</Slide>
 				
 				<Slide className={s.MoreComingSoon}>
-					<h2>More content coming soon...</h2>
+					<h2>{ t('more_coming_soon') }</h2>
 				</Slide>
 			</main>
 			<Footer />

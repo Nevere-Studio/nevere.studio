@@ -35,7 +35,13 @@
             },
             "work": {
                 "heading": "Our Work"
-            }
+            },
+            "cta": {
+                "heading": "Got a project in mind? <bold>Let's talk</bold>.",
+                "p": "Currently accepting select clients. Minimum engagement: $2000",
+                "btn": "Start a project"
+            },
+            "more_coming_soon": "More content coming soon..."
         }
     },
 
