@@ -184,10 +184,10 @@ function Home() {
 
 						<div className={s.project}>
 							<div>
-							<div className={s.lineTop}    ref={el => { work.lines.current[0] = el }} />
-							<h3 className={`${s.sr} ${s.active}`}   ref={el => { work.projects.current[0] = el }}>biogassolutions.pl</h3>
-							<h3 className={`${s.bs} ${s.inactive}`} ref={el => { work.projects.current[1] = el }}>simerisracing.com</h3>
-							<div className={s.lineBottom} ref={el => { work.lines.current[1] = el }} />
+								<div className={s.lineTop}    ref={el => { work.lines.current[0] = el }} />
+								<h3 className={`${s.sr} ${s.active}`}   ref={el => { work.projects.current[0] = el }}>biogassolutions.pl</h3>
+								<h3 className={`${s.bs} ${s.inactive}`} ref={el => { work.projects.current[1] = el }}>simerisracing.com</h3>
+								<div className={s.lineBottom} ref={el => { work.lines.current[1] = el }} />
 							</div>
 						</div>
 
