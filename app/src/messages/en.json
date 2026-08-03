@@ -25,11 +25,17 @@
             "description": "We craft high-performance, visually stunning websites using Next.js. Tailored digital experiences for ambitious brands looking to stand out."
         },
         "content": {
-            "availability": "Available for select Q3/Q4 projects",
-            "hero": ["The cosmic standard for ", "standout brands"],
-            "lead": ["Nevere Studio builds custom Next.js web applications for brands that refuse to look generic. We pair ", "custom front-end design", " with ", "modern React architecture", " to deliver fast, standalone sites built ", "strictly from scratch"],
-            "cta": "Work With Us",
-            "starting_from": "Starting from $2000"
+            "hero": {
+                "availability": "Available for select Q3/Q4 projects",
+                "heading": "The cosmic standard for <bold>standout brands</bold>",
+                "lead": "Nevere Studio builds custom Next.js web applications for brands that refuse to look generic. We pair <bold>custom front-end design</bold> with <bold>modern React architecture</bold> to deliver fast, standalone sites built <bold>strictly from scratch</bold>.",
+                "cta": "Work With Us",
+                "starting_from": "Starting from $2000",
+                "our_clients": "Our Clients"
+            },
+            "work": {
+                "heading": "Our Work"
+            }
         }
     },
 

@@ -159,13 +159,17 @@ function Home() {
 				<Slide className={s.Hero}>
 					<LiquidAurora />
 					<section className={s.content}>
-						<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('availability') }</span></p>
-						<h1>{ t('hero.0') }<strong>{ t('hero.1') }</strong></h1>
-						<p className={s.lead}>{ t('lead.0') }<strong>{ t('lead.1') }</strong>{ t('lead.2') }<strong>{ t('lead.3') }</strong>{ t('lead.4') }<strong>{ t('lead.5') }</strong>.</p>
+						<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('hero.availability') }</span></p>
+						<h1>{ t.rich('hero.heading', {
+							bold: chunks => <strong>{ chunks }</strong>
+						})}</h1>
+						<p className={s.lead}>{ t.rich('hero.lead', {
+							bold: chunks => <strong>{ chunks }</strong>
+						}) }</p>
 						<LabelButton
 							dualLabel={{
-								internal: t('cta'),
-								external: t('starting_from')
+								internal: t('hero.cta'),
+								external: t('hero.starting_from')
 							}} 
 							href="/contact" 
 							className={s.cta}

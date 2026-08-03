@@ -1,15 +1,18 @@
 import Marquee from "./Marquee";
 import Image from 'next/image';
 import styles from './Marquee.module.scss';
+import { useTranslations } from 'next-intl';
 
 const s = styles;
 
 function CollabsMarquee({ className }: { className?: string }) {
+    const t = useTranslations('home.content.hero');
+
     return (
         <div className={`${s.collabsMarquee} ${className}`}>
             <div className={s.text}>
-                <p className={s.black}>We've worked with</p>
-                <p className={s.white}>We've worked with</p>
+                <p className={s.black}>{ t('our_clients') }</p>
+                <p className={s.white}>{ t('our_clients') }</p>
             </div>
             <Marquee>
                 <Image className={s.item} width={750}  height={301} alt="Biogas Solutions"    src="https://www.biogassolutions.pl/img/brand/logo.svg" />
