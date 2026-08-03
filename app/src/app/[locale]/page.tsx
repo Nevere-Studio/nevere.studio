@@ -3,6 +3,7 @@
 import s from './page.module.scss';
 import { useTranslations } from 'next-intl';
 import { El } from '@/utils/types';
+import { polygon } from '@/utils/functions';
 
 import ScrollSmootherWrapper from '@/utils/gsap/ScrollSmoother';
 import Footer from '@/components/Footer/Footer';
@@ -82,23 +83,21 @@ function Home() {
 			}
 		});
 
-		tl.to(imgs.current[1], {
-			clipPath: 'polygon(-5% -5%, -5% 105%, 105% 105%, 105% -5%)',
+		tl.fromTo(imgs.current[0], {
+			clipPath: polygon('full', 50),
+		}, {
+			clipPath: polygon('top', 50),
 			duration: 0.75,
 			ease: 'power4.out'
 		});
 
-		tl.to(imgs.current[0], {
-			clipPath: 'polygon(-5% -5%, 105% -5%, 105% 105%, 105% -5%)',
+		tl.fromTo(imgs.current[1], {
+			clipPath: polygon('bottom', 50),
+		}, {
+			clipPath: polygon('full', 50),
 			duration: 0.75,
 			ease: 'power4.out'
-		}, 0);
-
-		tl.from(imgs.current[2], {
-			y: '110vh',
-			duration: 0.75,
-			ease: 'power4.out'
-		}, '-=0.4');
+		}, '<');
 
 		tl.to(imgs.current.slice(0, 3), {
 			y: '-110vh',
@@ -157,115 +156,107 @@ function Home() {
 			<main className="Main">
 
 				<Slide className={s.Hero}>
-				<LiquidAurora />
-				<section className={s.content}>
-					<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('availability') }</span></p>
-					<h1>{ t('hero.0') }<strong>{ t('hero.1') }</strong></h1>
-					<p className={s.lead}>{ t('lead.0') }<strong>{ t('lead.1') }</strong>{ t('lead.2') }<strong>{ t('lead.3') }</strong>{ t('lead.4') }<strong>{ t('lead.5') }</strong>.</p>
-					<LabelButton 
-					href="/contact" 
-					dualLabel={{ internal: t('cta'), external: t('starting_from') }}
-					className={s.cta}
-					/>
-					<CollabsMarquee className={s.marquee} />
-				</section>
+					<LiquidAurora />
+					<section className={s.content}>
+						<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('availability') }</span></p>
+						<h1>{ t('hero.0') }<strong>{ t('hero.1') }</strong></h1>
+						<p className={s.lead}>{ t('lead.0') }<strong>{ t('lead.1') }</strong>{ t('lead.2') }<strong>{ t('lead.3') }</strong>{ t('lead.4') }<strong>{ t('lead.5') }</strong>.</p>
+						<LabelButton 
+						href="/contact" 
+						dualLabel={{ internal: t('cta'), external: t('starting_from') }}
+						className={s.cta}
+						/>
+						<CollabsMarquee className={s.marquee} />
+					</section>
 				</Slide>
 
 				<GridSlide className={s.Work} ref={work.section}>
-				<h2 ref={work.h}>Our Work</h2>
+					<h2 ref={work.h}>Our Work</h2>
 
-				<div className={s.project}>
-					<div>
-					<div className={s.lineTop}    ref={el => { work.lines.current[0] = el }} />
-					<h3 className={`${s.sr} ${s.active}`}   ref={el => { work.projects.current[0] = el }}>biogassolutions.pl</h3>
-					<h3 className={`${s.bs} ${s.inactive}`} ref={el => { work.projects.current[1] = el }}>simerisracing.com</h3>
-					<div className={s.lineBottom} ref={el => { work.lines.current[1] = el }} />
-					</div>
-				</div>
-
-				<div className={s.images}>
-					<Image
-						src={bsHeroDesktop}
-						alt=""
-						width={1920}
-						height={1280}
-						placeholder="blur"
-						className={`${s.img} ${s.BsHero}`}
-						ref={el => { work.imgs.current[0] = el }}
-					/>
-
-					<Image
-						src={bsContactDesktop}
-						alt=""
-						width={1920}
-						height={1280}
-						placeholder="blur"
-						className={`${s.img} ${s.BsContact}`}
-						ref={el => { work.imgs.current[1] = el }}
-					/>
-
-					<Image
-						src={bsProcessDesktop}
-						alt=""
-						width={1920}
-						height={1280}
-						placeholder="blur"
-						className={`${s.img} ${s.BsProcess}`}
-						ref={el => { work.imgs.current[2] = el }}
-					/>
-
-					<div className={s.bsMobile} ref={bsMobile}>
-						<Image
-							src={bsMobile1}
-							alt=""
-							width={1080}
-							height={1920}
-							placeholder="blur"
-							className={`${s.img}`}
-							ref={el => { work.imgs.current[3] = el }}
-						/>
-
-						<Image
-							src={bsMobile2}
-							alt=""
-							width={1080}
-							height={1920}
-							placeholder="blur"
-							className={`${s.img}`}
-							ref={el => { work.imgs.current[4] = el }}
-						/>
-
-						<Image
-							src={bsMobile3}
-							alt=""
-							width={1080}
-							height={1920}
-							placeholder="blur"
-							className={`${s.img}`}
-							ref={el => { work.imgs.current[5] = el }}
-						/>
+					<div className={s.project}>
+						<div>
+						<div className={s.lineTop}    ref={el => { work.lines.current[0] = el }} />
+						<h3 className={`${s.sr} ${s.active}`}   ref={el => { work.projects.current[0] = el }}>biogassolutions.pl</h3>
+						<h3 className={`${s.bs} ${s.inactive}`} ref={el => { work.projects.current[1] = el }}>simerisracing.com</h3>
+						<div className={s.lineBottom} ref={el => { work.lines.current[1] = el }} />
+						</div>
 					</div>
 
-					<Image
-						src={srDesktop}
-						alt=""
-						width={1920}
-						height={1280}
-						placeholder="blur"
-						className={`${s.img} ${s.srDesktop}`}
-						ref={el => { work.imgs.current[6] = el }}
-					/>
+					<div className={s.images}>
+						<Image
+							src={bsHeroDesktop}
+							alt=""
+							width={1920}
+							height={1280}
+							placeholder="blur"
+							className={`${s.img} ${s.BsHero}`}
+							ref={el => { work.imgs.current[0] = el }}
+						/>
 
-					<Image
-						src={srTablet}
-						alt=""
-						width={1920}
-						height={1280}
-						placeholder="blur"
-						className={`${s.img} ${s.srTablet}`}
-						ref={el => { work.imgs.current[7] = el }}
-					/>
-				</div>
+						<Image
+							src={bsContactDesktop}
+							alt=""
+							width={1920}
+							height={1280}
+							placeholder="blur"
+							className={`${s.img} ${s.BsContact}`}
+							ref={el => { work.imgs.current[1] = el }}
+						/>
+
+						<div className={s.bsMobile} ref={bsMobile}>
+							<Image
+								src={bsMobile1}
+								alt=""
+								width={1080}
+								height={1920}
+								placeholder="blur"
+								className={`${s.img}`}
+								ref={el => { work.imgs.current[3] = el }}
+							/>
+
+							<Image
+								src={bsMobile2}
+								alt=""
+								width={1080}
+								height={1920}
+								placeholder="blur"
+								className={`${s.img}`}
+								ref={el => { work.imgs.current[4] = el }}
+							/>
+
+							<Image
+								src={bsMobile3}
+								alt=""
+								width={1080}
+								height={1920}
+								placeholder="blur"
+								className={`${s.img}`}
+								ref={el => { work.imgs.current[5] = el }}
+							/>
+						</div>
+
+						<Image
+							src={srDesktop}
+							alt=""
+							width={1920}
+							height={1280}
+							placeholder="blur"
+							className={`${s.img} ${s.srDesktop}`}
+							ref={el => { work.imgs.current[6] = el }}
+						/>
+
+						<Image
+							src={srTablet}
+							alt=""
+							width={1920}
+							height={1280}
+							placeholder="blur"
+							className={`${s.img} ${s.srTablet}`}
+							ref={el => { work.imgs.current[7] = el }}
+						/>
+					</div>
+				</GridSlide>
+
 				</GridSlide>
 			</main>
 			<Footer />
