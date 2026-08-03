@@ -141,3 +141,90 @@
         --lightAngle: calc(90deg + 360deg);
     }
 }
+
+/* M A S K   B U T T O N */
+.MaskBtn {
+    $padding-inline: 1.3rem;
+    $padding-block: 1rem;
+    $font-size: 1.1rem;
+    $height: calc(2 * $padding-block + $font-size);
+
+    margin: 0;
+    border: none;
+    background: none;
+    color: white;
+
+    padding: $padding-block $padding-inline;
+    font-size: $font-size;
+    line-height: 1;
+    border-radius: calc(#{$height} / 2);
+    background: $blue;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.5s ease-in-out;
+
+    --dot-scale: 1;
+    --offset: 0rem;
+    --arrow-opacity: 0;
+    --arrow-rotation: 0deg;
+    --arrow-scale: 0;
+
+    &:hover {
+        --dot-scale: 50;
+        --offset: -1rem;
+        --arrow-opacity: 1;
+        --arrow-rotation: 360deg;
+        --arrow-scale: 1;
+        color: black;
+    }
+
+    .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        left: $padding-inline;
+        top: calc(50% - 0.25rem);
+        transform: scale(var(--dot-scale));
+        transition: transform 0.5s ease-out;
+    }
+
+    .text {
+        text-wrap: nowrap;
+        text-decoration: none;
+        transform: translateX(var(--offset));
+        transition: transform 0.5s ease-in-out;
+        margin-left: 1rem;
+    }
+
+    .arrow {
+        height: calc(#{$font-size} * 1.5);
+        width: auto;
+        position: absolute;
+        top: calc(50% - #{$font-size} * 0.75);
+        right: calc($padding-inline * 0.5);
+        translate: calc(1rem + var(--offset)) 0;
+        opacity: var(--arrow-opacity);
+        scale: var(--arrow-scale);
+        transition: 
+            translate 0.5s ease-in-out,
+            opacity   0.5s ease-in-out,
+            rotate    0.6s ease-out,
+            scale     0.6s ease-out;
+
+        &.internal {
+            rotate: var(--arrow-rotation);
+        }
+
+        &.external {
+            rotate: calc(var(--arrow-rotation) - 45deg);
+        }
+    }
+}
