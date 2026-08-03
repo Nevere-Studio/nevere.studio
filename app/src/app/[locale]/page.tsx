@@ -12,7 +12,7 @@ import GridSlide from '@/components/Slide/GridSlide';
 import LiquidAurora from '@/components/shaders/LiquidAurora';
 import LabelButton from '@/components/links/LabelButton';
 import CollabsMarquee from '@/components/marquee/CollabsMarquee';
-import MaskBtn from '@/components/links/MaskBtn';
+import SectionTransition from '@/components/transitions/SectionTransition';
 
 import Image from 'next/image';
 import bsHeroDesktop    from '@/../public/mockups/bs_macbook.png';
@@ -123,7 +123,7 @@ function Home() {
 			scale: 0.7,
 			opacity: 0.5,
 			duration: 0.1,
-			ease: 'power4.in'
+			ease: 'power1.in'
 		}, '-=0.5');
 
 		tl.to(projects.current[1], {
@@ -132,7 +132,7 @@ function Home() {
 			scale: 1,
 			opacity: 1,
 			duration: 0.1,
-			ease: 'power4.in'
+			ease: 'power1.in'
 		}, '<');
 
 		tl.fromTo(imgs.current[6], {
@@ -173,92 +173,98 @@ function Home() {
 					</section>
 				</Slide>
 
-				<GridSlide className={s.Work} ref={work.section}>
-					<h2 ref={work.h}>Our Work</h2>
+				<div className={s.WorkBg}>
+					<GridSlide className={s.Work} ref={work.section}>
+						<h2 ref={work.h}>Our Work</h2>
 
-					<div className={s.project}>
-						<div>
-						<div className={s.lineTop}    ref={el => { work.lines.current[0] = el }} />
-						<h3 className={`${s.sr} ${s.active}`}   ref={el => { work.projects.current[0] = el }}>biogassolutions.pl</h3>
-						<h3 className={`${s.bs} ${s.inactive}`} ref={el => { work.projects.current[1] = el }}>simerisracing.com</h3>
-						<div className={s.lineBottom} ref={el => { work.lines.current[1] = el }} />
-						</div>
-					</div>
-
-					<div className={s.images}>
-						<Image
-							src={bsHeroDesktop}
-							alt=""
-							width={1920}
-							height={1280}
-							placeholder="blur"
-							className={`${s.img} ${s.BsHero}`}
-							ref={el => { work.imgs.current[0] = el }}
-						/>
-
-						<Image
-							src={bsContactDesktop}
-							alt=""
-							width={1920}
-							height={1280}
-							placeholder="blur"
-							className={`${s.img} ${s.BsContact}`}
-							ref={el => { work.imgs.current[1] = el }}
-						/>
-
-						<div className={s.bsMobile} ref={bsMobile}>
-							<Image
-								src={bsMobile1}
-								alt=""
-								width={1080}
-								height={1920}
-								placeholder="blur"
-								className={`${s.img}`}
-								ref={el => { work.imgs.current[3] = el }}
-							/>
-
-							<Image
-								src={bsMobile2}
-								alt=""
-								width={1080}
-								height={1920}
-								placeholder="blur"
-								className={`${s.img}`}
-								ref={el => { work.imgs.current[4] = el }}
-							/>
-
-							<Image
-								src={bsMobile3}
-								alt=""
-								width={1080}
-								height={1920}
-								placeholder="blur"
-								className={`${s.img}`}
-								ref={el => { work.imgs.current[5] = el }}
-							/>
+						<div className={s.project}>
+							<div>
+							<div className={s.lineTop}    ref={el => { work.lines.current[0] = el }} />
+							<h3 className={`${s.sr} ${s.active}`}   ref={el => { work.projects.current[0] = el }}>biogassolutions.pl</h3>
+							<h3 className={`${s.bs} ${s.inactive}`} ref={el => { work.projects.current[1] = el }}>simerisracing.com</h3>
+							<div className={s.lineBottom} ref={el => { work.lines.current[1] = el }} />
+							</div>
 						</div>
 
-						<Image
-							src={srDesktop}
-							alt=""
-							width={1920}
-							height={1280}
-							placeholder="blur"
-							className={`${s.img} ${s.srDesktop}`}
-							ref={el => { work.imgs.current[6] = el }}
-						/>
+						<div className={s.images}>
+							<Image
+								src={bsHeroDesktop}
+								alt=""
+								width={1920}
+								height={1280}
+								placeholder="blur"
+								className={`${s.img} ${s.BsHero}`}
+								ref={el => { work.imgs.current[0] = el }}
+							/>
 
-						<Image
-							src={srTablet}
-							alt=""
-							width={1920}
-							height={1280}
-							placeholder="blur"
-							className={`${s.img} ${s.srTablet}`}
-							ref={el => { work.imgs.current[7] = el }}
-						/>
-					</div>
-				</GridSlide>
+							<Image
+								src={bsContactDesktop}
+								alt=""
+								width={1920}
+								height={1280}
+								placeholder="blur"
+								className={`${s.img} ${s.BsContact}`}
+								ref={el => { work.imgs.current[1] = el }}
+							/>
+
+							<div className={s.bsMobile} ref={bsMobile}>
+								<Image
+									src={bsMobile1}
+									alt=""
+									width={1080}
+									height={1920}
+									placeholder="blur"
+									className={`${s.img}`}
+									ref={el => { work.imgs.current[3] = el }}
+								/>
+
+								<Image
+									src={bsMobile2}
+									alt=""
+									width={1080}
+									height={1920}
+									placeholder="blur"
+									className={`${s.img}`}
+									ref={el => { work.imgs.current[4] = el }}
+								/>
+
+								<Image
+									src={bsMobile3}
+									alt=""
+									width={1080}
+									height={1920}
+									placeholder="blur"
+									className={`${s.img}`}
+									ref={el => { work.imgs.current[5] = el }}
+								/>
+							</div>
+
+							<Image
+								src={srDesktop}
+								alt=""
+								width={1920}
+								height={1280}
+								placeholder="blur"
+								className={`${s.img} ${s.srDesktop}`}
+								ref={el => { work.imgs.current[6] = el }}
+							/>
+
+							<Image
+								src={srTablet}
+								alt=""
+								width={1920}
+								height={1280}
+								placeholder="blur"
+								className={`${s.img} ${s.srTablet}`}
+								ref={el => { work.imgs.current[7] = el }}
+							/>
+						</div>
+					</GridSlide>
+
+					<SectionTransition color="#161616" />
+				</div>
+				
+				<GridSlide style={{ background: "#161616" }} />
 			</main>
 			<Footer />
 		</ScrollSmootherWrapper>

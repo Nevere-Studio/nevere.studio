@@ -1,0 +1,17 @@
+@use '../../utils/variables.scss' as *;
+
+.SectionTransition {
+    @include flexColumn(0);
+    align-items: center;
+    justify-content: center;
+
+    .row {
+        display: flex;
+        width: 100%;
+
+        .cell {
+            flex-grow: 1;
+            aspect-ratio: 1;
+        }
+    }
+}

@@ -84,13 +84,15 @@
     }
 }
 
-.Work {
+.WorkBg {
     background: linear-gradient(
         in oklch 60deg,
         #121552,
         #00000D
     );
+}
 
+.Work {
     h2 {
         font-size: 15vw;
         font-weight: 300;
