@@ -11,6 +11,7 @@ import Slide from '@/components/Slide/Slide';
 import GridSlide from '@/components/Slide/GridSlide';
 import LiquidAurora from '@/components/shaders/LiquidAurora';
 import LabelButton from '@/components/links/LabelButton';
+import MaskBtn from '@/components/links/MaskBtn';
 import CollabsMarquee from '@/components/marquee/CollabsMarquee';
 import SectionTransition from '@/components/transitions/SectionTransition';
 
@@ -263,6 +264,12 @@ function Home() {
 
 					<SectionTransition color="#161616" />
 				</div>
+
+				<Slide className={s.Cta}>
+					<h2>Got a project in mind? <strong>Let's talk.</strong></h2>
+					<p>Currently accepting select clients. Minimum engagement: $2000</p>
+					<MaskBtn href="/contact" className={s.btn}>Start a Project</MaskBtn>
+				</Slide>
 				
 				<Slide className={s.MoreComingSoon}>
 					<h2>More content coming soon...</h2>
