@@ -18,10 +18,10 @@ import summaryBgText from '@/../public/dotted-kihim-text/summary.svg';
 // C O M P O N E N T S
 import { HorizontalSection, HorizontalPanel } from '../horizontal-scroll/horizontal-scroll';
 import Slide from '@/components/Slide/Slide';
-import { TextField, TextArea } from '@/components/forms/TextField';
+import { TextField, TextArea } from '@/components/forms/text-fields';
 import Options from '@/components/forms/Options';
 import Slider from '@/components/forms/Slider';
-import SubmitBtn from './SubmitBtn';
+import { SubmitBtn, Label } from './submit-button';
 
 // G S A P
 import { gsap } from 'gsap';
@@ -480,7 +480,8 @@ function ContactForm() {
                         </div>
                     </div>
                 </div>
-                <SubmitBtn disabled={isSubmitting || !dataValid} className={s.submitButton} label={result} />
+                <SubmitBtn disabled={isSubmitting || !dataValid} className={s.submitButton} />
+                <Label text={result} className={s.label} />
             </Slide>
         </form>
     );

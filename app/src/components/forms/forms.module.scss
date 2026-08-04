@@ -46,130 +46,102 @@
     box-sizing: border-box;
 }
 
-@property --lightAngle {
-    syntax: "<angle>";
-    initial-value: 45deg;
-    inherits: true;
-}
+.SubmitBtn {
+    $padding-inline: 1.3rem;
+    $padding-block: 1rem;
+    $font-size: 1.1rem;
+    $height: calc(2 * $padding-block + $font-size);
 
-@property --lightColor {
-    syntax: '<color>';
-    initial-value: #00f;
-    inherits: true;
-}
+    margin: 0;
+    border: none;
+    background: none;
+    color: white;
 
-@property --lightOpacity {
-    syntax: '<number>';
-    initial-value: 1;
-    inherits: true;
-}
-
-@property --lightIntensity {
-    syntax: '<number>';
-    initial-value: 0.75;
-    inherits: true;
-}
-
-.flareBtn {
-    $padding-block: 1.2rem;
-    $padding-inline: 2rem;
-    --font-size: 1.5rem;
-    --height: calc(2 * #{$padding-block} + var(--font-size));
-
-    font-size: var(--font-size);
-    line-height: var(--font-size);
-    border-radius: calc(var(--height) / 2);
-
+    padding: $padding-block $padding-inline !important;
+    font-size: $font-size;
+    line-height: 1;
+    border-radius: calc(#{$height} / 2);
+    background: $blue;
+    display: flex;
+    align-items: center;
+    justify-items: center;
     position: relative;
-    overflow: visible;
     width: fit-content;
-    background: #000d;
-    text-wrap: nowrap;
+    height: fit-content;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.5s ease-in-out;
 
-    .btnContainer {
-        position: relative;
-        transition: 
-            --lightColor     0.3s ease-in-out,
-            --lightIntensity 0.3s ease-in-out,
-            --lightOpacity   0.3s ease-in-out;
-        border-radius: calc(var(--height) / 2);
+    --dot-scale: 1;
+    --offset: 0rem;
+    --arrow-opacity: 0;
+    --arrow-rotation: 0deg;
+    --arrow-scale: 0;
+
+    &.enabled {
+        cursor: pointer;
 
         &:hover {
-            --lightOpacity: var(--lightIntensity);
-            --lightColor: #fff;
-        }
-
-        .btn {
-            color: white;
-            text-decoration: none;
-            background: none;
-            border: none;
-            font-size: var(--font-size);
-            line-height: 1;
-            cursor: pointer;
-            padding: $padding-block $padding-inline;
-            border-radius: calc(var(--height) / 2);
-        }
-
-        .flare {
-            width: 4rem;
-            opacity: calc(var(--lightOpacity) * var(--lightIntensity));
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background-color: var(--lightColor);
-            filter: blur(1.5rem);
-            position: absolute;
-            offset-path: border-box;
-            offset-anchor: center 30%;
-            pointer-events: none;
-            animation: followBorder 10s linear infinite;
-            z-index: -1;
-            transition: width 0.5s ease-out;
-        }
-
-        .glow {
-            $thickness: 2px;
-            position: absolute;
-            border-radius: calc(var(--height) / 2 + $thickness);
-            z-index: -1;
-            inset: calc($thickness * -1);
-            animation: lightTravel 10s linear infinite;
-            background: linear-gradient(var(--lightAngle), var(--lightColor), #fff0);
-            filter: blur(2px);
-            opacity: calc(var(--lightOpacity) * var(--lightIntensity));
+            --dot-scale: 50;
+            --offset: -1rem;
+            --arrow-opacity: 1;
+            --arrow-rotation: 360deg;
+            --arrow-scale: 1;
+            color: black;
         }
     }
 
-    .label {
-        width: fit-content;
-        transition: width 0.5s ease-in-out;
-        display: flex;
-        flex-wrap: nowrap;
-        background: #3334;
-        backdrop-filter: blur(10px);
-        border-radius: calc(var(--height) / 2);
-        align-items: center;
-        font-size: 1rem;
+    &.disabled {
+        cursor: not-allowed;
+    }
 
-        .labelText {
-            width: 0;
-            overflow: hidden;
-        }
+    .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        left: $padding-inline;
+        top: calc(50% - 0.25rem);
+        transform: scale(var(--dot-scale));
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .text {
+        text-wrap: nowrap;
+        text-decoration: none;
+        transform: translateX(var(--offset));
+        transition: transform 0.4s ease-in-out;
+        margin-left: 1rem;
+    }
+
+    .arrow {
+        height: calc(#{$font-size} * 1.5);
+        width: auto;
+        position: absolute;
+        top: calc(50% - #{$font-size} * 0.75);
+        right: calc($padding-inline * 0.5);
+        translate: calc(1rem + var(--offset)) 0;
+        opacity: var(--arrow-opacity);
+        scale: var(--arrow-scale);
+        transition: 
+            translate 0.5s ease-in-out,
+            opacity   0.5s ease-in-out,
+            rotate    0.6s ease-out,
+            scale     0.6s ease-out;
+        rotate: calc(var(--arrow-rotation) - 45deg);
     }
 }
 
-@keyframes followBorder {
-    from {
-        offset-distance: 0;
-    } to {
-        offset-distance: 100%;
-    }
-}
+.Label {
+    $padding-inline: 1.2rem;
+    $padding-block: 1rem;
+    $font-size: 1.1rem;
+    $height: calc(2 * #{$padding-block} + #{$font-size});
 
-@keyframes lightTravel {
-    from {
-        --lightAngle: 90deg;
-    } to {
-        --lightAngle: calc(90deg + 360deg);
-    }
+    padding: $padding-block $padding-inline;
+    font-size: $font-size;
+    border-radius: 1rem;
+    width: auto;
+    background: $obsidianGrey;
 }
