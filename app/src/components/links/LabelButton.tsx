@@ -1,6 +1,7 @@
-import type { LinkProps } from '@/utils/types';
+import type { LinkProps, El } from '@/utils/types';
 import styles from './links.module.scss';
 import MaskBtn from '@/components/links/MaskBtn';
+import { forwardRef } from 'react';
 
 const s = styles;
 
@@ -12,13 +13,12 @@ interface Props extends LinkProps {
     type?: 'internal' | 'external',
 }
 
-function LabelButton({ href, ref, className, dualLabel, style, type }: Props) {
+const LabelButton = forwardRef<El.Div, Props>(({ href, className, dualLabel, style, type }, ref) => {
     return (
-        <div className={`${s.labelBtn} ${className}`} style={style}>
+        <div className={`${s.labelBtn} ${className}`} style={style} ref={ref}>
             <MaskBtn 
                 href={href} 
                 type={type}
-                ref={ref}
             >
                 { dualLabel.internal }
             </MaskBtn>
@@ -28,6 +28,8 @@ function LabelButton({ href, ref, className, dualLabel, style, type }: Props) {
             </div>
         </div>
     );
-}
+});
+
+LabelButton.displayName = 'LabelButton';
 
 export default LabelButton;

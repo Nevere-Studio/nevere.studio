@@ -2,14 +2,15 @@ import Marquee from "./Marquee";
 import Image from 'next/image';
 import styles from './Marquee.module.scss';
 import { useTranslations } from 'next-intl';
+import type { Core, Ref, El } from '@/utils/types';
 
 const s = styles;
 
-function CollabsMarquee({ className }: { className?: string }) {
+function CollabsMarquee({ className, ref, id }: Core) {
     const t = useTranslations('home.content.hero');
 
     return (
-        <div className={`${s.collabsMarquee} ${className}`}>
+        <div className={`${s.collabsMarquee} ${className}`} ref={ref as Ref<El.Div>} id={id}>
             <div className={s.text}>
                 <p className={s.black}>{ t('our_clients') }</p>
                 <p className={s.white}>{ t('our_clients') }</p>

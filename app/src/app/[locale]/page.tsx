@@ -2,7 +2,7 @@
 
 import s from './page.module.scss';
 import { useTranslations } from 'next-intl';
-import { El } from '@/utils/types';
+import { El, Ref } from '@/utils/types';
 import { polygon, useRichText } from '@/utils/functions';
 
 import ScrollSmootherWrapper from '@/utils/gsap/ScrollSmoother';
@@ -35,6 +35,22 @@ function Home() {
 	const t  = useTranslations('home.content');
 	const rt = useRichText(t);
 
+	const heroSection      = useRef<El>    (null);
+	const heroH1           = useRef<El.H>  (null);
+	const heroAvailability = useRef<El.P>  (null);
+	const heroLead         = useRef<El.P>  (null);
+	const heroCta          = useRef<El.Div>(null);
+	const heroMarquee      = useRef<El.Div>(null);
+
+	const hero = {
+		section: heroSection,
+		h: heroH1,
+		availability: heroAvailability,
+		lead: heroLead,
+		cta: heroCta,
+		marquee: heroMarquee
+	}
+
 	const workSection  = useRef<El>    (null);
 	const workHeading  = useRef<El.H>  (null);
 	const bsMobile     = useRef<El.Div>(null);
@@ -49,6 +65,25 @@ function Home() {
 		projects: workProjects,
 		imgs:     workImages,
 	}
+
+	useGSAP(() => {
+		if (typeof window === 'undefined') return;
+
+		const { section, h, availability, lead, cta, marquee } = hero;
+		if (!section.current || !h.current || !availability.current || !lead.current || !cta.current || !marquee.current) return;
+
+		const splitH    = fadeUpWords.prepare(h);
+		const splitLead = fadeUpWords.prepare(lead);
+
+		const tl = gsap.timeline({
+			delay: 0.5
+		});
+
+		tl.add(fadeUpWords.animate(splitH));
+		tl.add(revealWipe(availability, { ease: 'power1.out' }), '<0.5');
+		tl.add(fadeUpWords.animate(splitLead, { stagger: 0.05 }), '-=0.6');
+		tl.add(revealWipe([cta, marquee]), '<');
+	}, { scope: hero.section });
 
 	useGSAP(() => {
 		if (typeof window === 'undefined') return;
@@ -159,10 +194,10 @@ function Home() {
 
 				<Slide className={s.Hero}>
 					<LiquidAurora />
-					<section className={s.content}>
-						<p className={s.availability}><span className={s.indicator}></span><span className={s.text}>{ t('hero.availability') }</span></p>
-						<h1>{ rt('hero.heading')}</h1>
-						<p className={s.lead}>{ rt('hero.lead') }</p>
+					<section className={s.content} ref={hero.section}>
+						<p className={s.availability} ref={hero.availability}><span className={s.indicator}></span><span className={s.text}>{ t('hero.availability') }</span></p>
+						<h1 ref={hero.h}>{ rt('hero.heading')}</h1>
+						<p className={s.lead} ref={hero.lead}>{ rt('hero.lead') }</p>
 						<LabelButton
 							dualLabel={{
 								internal: t('hero.cta'),
@@ -170,8 +205,9 @@ function Home() {
 							}} 
 							href="/contact" 
 							className={s.cta}
+							ref={hero.cta}
 						/>
-						<CollabsMarquee className={s.marquee} />
+						<CollabsMarquee className={s.marquee} ref={hero.marquee} />
 					</section>
 				</Slide>
 

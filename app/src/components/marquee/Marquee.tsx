@@ -1,15 +1,11 @@
-import type { Children } from '@/utils/types';
+import type { Core, El, Ref } from '@/utils/types';
 import styles from './Marquee.module.scss';
 
 const s = styles;
 
-interface Props extends Children {
-    className?: string;
-}
-
-function Marquee({ children, className }: Props) {
+function Marquee({ children, className, ref, id }: Core) {
     return (
-        <div className={`${s.marquee} ${className}`}>
+        <div className={`${s.marquee} ${className}`} ref={ref as Ref<El.Div>} id={id}>
             <div className={s.track}>
                 { children }
             </div>
