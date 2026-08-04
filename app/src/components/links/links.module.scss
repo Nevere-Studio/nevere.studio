@@ -183,14 +183,14 @@
         left: $padding-inline;
         top: calc(50% - 0.25rem);
         transform: scale(var(--dot-scale));
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.4s ease-in-out;
     }
 
     .text {
         text-wrap: nowrap;
         text-decoration: none;
         transform: translateX(var(--offset));
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.4s ease-in-out;
         margin-left: 1rem;
     }
 
