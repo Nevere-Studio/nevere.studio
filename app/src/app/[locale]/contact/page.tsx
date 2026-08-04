@@ -5,6 +5,7 @@ import Slide from '@/components/Slide/Slide';
 import { useTranslations } from 'next-intl';
 import LiquidPlasma from '@/components/shaders/LiquidPlasma';
 import ContactForm from '@/components/forms/ContactForm';
+import SectionTransition from '@/components/transitions/SectionTransition';
 import emailBg from '@/../public/dotted-kihim-text/email.svg';
 import Image from 'next/image';
 import { useRef } from 'react';
@@ -55,7 +56,10 @@ function Contact() {
                 </div>
             </Slide>
 
-            <ContactForm />
+            <div className={s.ContactFormBg} style={{ backgroundColor: '#010E1B'}}>
+                <ContactForm />
+                <SectionTransition color="#161616" />
+            </div>
 
             <Slide className={s.DirectContact} ref={directContactSlide}>
                 <Image
