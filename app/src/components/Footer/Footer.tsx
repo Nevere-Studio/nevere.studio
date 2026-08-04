@@ -57,7 +57,7 @@ function Footer() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: footer.current,
-                start: '90% bottom'
+                start: 'center bottom'
             },
             delay: 0.1
         });
