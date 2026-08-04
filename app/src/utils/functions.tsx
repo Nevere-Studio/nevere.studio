@@ -214,9 +214,10 @@ export function polygon(key: 'full' | 'top' | 'bottom' | 'left' | 'right' | [num
 
 // I N T E R N A T I O N A L I Z A T I O N
 export function useRichText(t: ReturnType<typeof useTranslations>) {
-    return function(key: string) {
+    return function(key: string, options: {} = {}) {
         return t.rich(key, {
-            bold: chunks => <strong>{ chunks }</strong>
-        })
+            bold: chunks => <strong>{ chunks }</strong>,
+            ...options
+        });
     }
 }
