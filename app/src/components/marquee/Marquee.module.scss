@@ -12,7 +12,7 @@
     position: relative;
     display: flex;
     overflow-x: hidden;
-    background-color: #fff;
+    background-color: #f2f6fc;
     padding-block: 1.5rem;
 
     .track {
@@ -64,6 +64,7 @@
 
         .white {
             clip-path: inset(0 0 50% 0);
+            color: #f2f6fc;
         }
 
         .black {

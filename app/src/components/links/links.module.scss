@@ -47,7 +47,7 @@
     font-size: $font-size;
     line-height: 1;
     border-radius: calc(#{$height} / 2);
-    background: $blue;
+    background: $cobaltBlue;
     display: flex;
     align-items: center;
     justify-items: center;
@@ -76,7 +76,7 @@
     .dot {
         width: 0.5rem;
         height: 0.5rem;
-        background: white;
+        background: #f2f6fc;
         border-radius: 50%;
         position: absolute;
         left: $padding-inline;
