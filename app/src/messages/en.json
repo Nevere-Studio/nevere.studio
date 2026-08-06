@@ -149,6 +149,7 @@
             "description": "Transparent privacy policy for Nevere Studio. Learn how we handle contact form inquiries, analytics data, and your privacy under GDPR."
         },
         "content": {
+            "page_under_construction": "Page Under Construction",
             "h1": "Privacy Policy",
             "effective_date": "<bold>Effective Date</bold>: August 6, 2026",
             "last_updated": "<bold>Last Updated</bold>: August 6, 2026",

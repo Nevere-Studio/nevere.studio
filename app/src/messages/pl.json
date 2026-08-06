@@ -149,6 +149,7 @@
             "description": "Przejrzysta polityka prywatności Nevere Studio. Dowiedz się, jak przetwarzamy zapytania z formularza kontaktowego, dane analityczne i dbamy o Twoją prywatność zgodnie z RODO."
         },
         "content": {
+            "page_under_construction": "Strona W Budowie",
             "h1": "Polityka Prywatności",
             "effective_date": "<bold>Data wejścia w życie</bold>: 6 sierpnia 2026",
             "last_updated": "<bold>Ostatnia aktualizacja</bold>: 6 sierpnia 2026",

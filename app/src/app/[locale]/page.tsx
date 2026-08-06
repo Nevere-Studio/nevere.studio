@@ -3,7 +3,8 @@
 import s from './page.module.scss';
 import { useTranslations } from 'next-intl';
 import { El, Ref } from '@/utils/types';
-import { polygon, useRichText } from '@/utils/functions';
+import { polygon } from '@/utils/functions';
+import useRichText from '@/i18n/useRichText';
 
 import ScrollSmootherWrapper from '@/utils/gsap/ScrollSmoother';
 import Footer from '@/components/Footer/Footer';

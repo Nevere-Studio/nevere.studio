@@ -1,1 +1,15 @@
 @use '../../../utils/variables.scss' as *;
+
+.Hero {
+    @include flexAlign(center, center, center);
+
+    h1 {
+        color: white;
+        font-family: $googleCode;
+        font-weight: 200;
+
+        .pointer {
+            @include blink(1.5s);
+        }
+    }
+}
