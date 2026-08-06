@@ -141,5 +141,85 @@
         "content": {
             "page under construction": "strona w budowie"
         }
+    },
+
+    "privacy_policy": {
+        "metadata": {
+            "title": "Polityka Prywatności | Nevere Studio - Projektowanie i Tworzenie Stron Internetowych",
+            "description": "Przejrzysta polityka prywatności Nevere Studio. Dowiedz się, jak przetwarzamy zapytania z formularza kontaktowego, dane analityczne i dbamy o Twoją prywatność zgodnie z RODO."
+        },
+        "content": {
+            "h1": "Polityka Prywatności",
+            "effective_date": "<bold>Data wejścia w życie</bold>: 6 sierpnia 2026",
+            "last_updated": "<bold>Ostatnia aktualizacja</bold>: 6 sierpnia 2026",
+            "intro": ["W Nevere Studio (nevere.studio) tworzymy czyste, wydajne aplikacje internetowe bez zbędnego obciążenia i dokładnie tę samą filozofię stosujemy do Twojej prywatności.", "Nie sprzedajemy Twoich danych, nie śledzimy Cię w sieci w celach reklamowych ani nie ukrywamy się za niezliczonymi stronami prawniczego bełkotu. Niniejsza polityka wyjaśnia, jakie dane zbieramy, dlaczego je zbieramy, jak są przechowywane oraz jakie prawa przysługują Ci na mocy ogólnego rozporządzenia UE o ochronie danych (RODO / GDPR) i obowiązujących przepisów o ochronie prywatności."],
+            "who_we_are": {
+                "heading": "Kim jesteśmy (Administrator danych)",
+                "intro": "Administratorem odpowiedzialnym za przetwarzanie Twoich danych osobowych na tej stronie internetowej jest:",
+                "brand": "<bold>Marka</bold>: Nevere Studio",
+                "founder": "<bold>Założyciel</bold> / <bold>Właściciel</bold>: Jakub Barczyński",
+                "location": "<bold>Lokalizacja</bold>: Polska (Unia Europejska)",
+                "email": "<bold>E-mail kontaktowy</bold>: contact@nevere.studio (alternatywnie jakub.barczynski@nevere.studio)",
+                "website": "<bold>Strona internetowa</bold>: <ns>nevere.studio</ns>",
+                "ps": "Jeśli masz jakiekolwiek pytania dotyczące sposobu przetwarzania Twoich danych, w każdej chwili możesz napisać do nas bezpośrednio wiadomość e-mail."
+            },
+            "what_and_how": {
+                "heading": "Jakie dane zbieramy i jak je wykorzystujemy",
+                "intro": "Zbieramy dane tylko wtedy, gdy istnieje do tego wyraźny, uzasadniony powód. Na stronie <ns>nevere.studio</ns> zbieranie danych dzieli się na dwie kategorie:",
+                "contact": {
+                    "intro": "Gdy przesyłasz brief projektu lub kontaktujesz się z nami za pomocą formularza kontaktowego, zbieramy dane, które przekazujesz nam dobrowolnie.",
+                    "data_collected": "<bold>Zbierane dane</bold>: Twoje imię i nazwisko, adres e-mail, nazwa firmy i branża oraz zakres projektu.",
+                    "why": "<bold>Dlaczego ich potrzebujemy</bold>: Aby przeanalizować Twoje zapytanie, omówić wymagania dotyczące projektu, przygotować propozycje i odpowiedzieć na Twoją wiadomość.",
+                    "legal_basis": "Podstawa prawna (Art. 6 ust. 1 lit. b RODO): Przetwarzanie jest niezbędne do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy.",
+                    "how_long_we_keep_it": "<bold>Jak długo je przechowujemy</bold>: Przechowujemy korespondencję biznesową tak długo, jak jest to konieczne do realizacji Twojego projektu lub prowadzenia dokumentacji biznesowej (zazwyczaj do 3-5 lat ze względu na wymogi podatkowe i prawne w Polsce). Jeśli nie podejmiemy współpracy, w każdej chwili możesz poprosić nas o usunięcie Twojego zapytania."
+                },
+                "analytics": {
+                    "heading": "Analityka i wydajność strony internetowej",
+                    "intro": "Aby nasza strona działała szybko, responsywnie i prawidłowo na wszystkich urządzeniach, zbieramy podstawowe, nieidentyfikujące dane techniczne i analityczne.",
+                    "data_collected": "<bold>Zbierane dane</bold>: Zanonimizowane adresy IP, typ przeglądarki, typ urządzenia, źródło odwiedzin, przeglądane strony oraz czas spędzony na stronie.",
+                    "why": "<bold>Dlaczego ich potrzebujemy</bold>: Aby analizować wzorce ruchu, wykrywać problemy techniczne, poprawiać wydajność stron i zapewniać płynną nawigację użytkownikom.",
+                    "analytics_providers": "<bold>Dostawcy analityki</bold>: Korzystamy z narzędzia analitycznego kładącego nacisk na prywatność (Vercel Analytics).",
+                    "legal_basis": "<bold>Podstawa prawna</bold> (Art. 6 ust. 1 lit. f RODO): Nasz prawnie uzasadniony interes w utrzymaniu i optymalizacji bezpiecznej, wysokowydajnej platformy internetowej."
+                }
+            },
+            "cookies_and_tracking": {
+                "heading": "Pliki cookie i technologie śledzące",
+                "intro": "Ograniczamy użycie plików cookie do minimum.",
+                "essential_cookies": "<bold>Niezbędne pliki cookie</bold>: Konieczne do podstawowego działania i bezpieczeństwa Next.js oraz infrastruktury hostingowej strony.",
+                "analytics_cookies": "Analityczne pliki cookie: Używane do zliczania wizyt na stronie i źródeł ruchu, dzięki czemu możemy mierzyć wydajność.",
+                "outro": "Możesz skonfigurować swoją przeglądarkę tak, aby blokowała pliki cookie lub ostrzegała o nich, ale w rezultacie niektóre części strony mogą nie działać prawidłowo."
+            },
+            "who_we_share_data_with": {
+                "heading": "Komu udostępniamy Twoje dane",
+                "intro": "Nigdy nie sprzedajemy, nie wynajmujemy ani nie handlujemy Twoimi danymi osobowymi. Udostępniamy informacje wyłącznie zaufanym dostawcom infrastruktury niezbędnym do prowadzenia tej strony internetowej i komunikacji z Tobą:",
+                "hosting_and_cdn": "<bold>Hosting</bold> i <bold>CDN</bold>: Vercel Inc. (Globalna infrastruktura edge hostująca <ns>nevere.studio</ns>)",
+                "email_and_communication": "<bold>Poczta e-mail</bold> i <bold>komunikacja</bold>: Dostawca poczty e-mail - Spaceship Inc (do zarządzania przychodzącymi briefami i wiadomościami od klientów)",
+                "analytics": "<bold>Analityka</bold>: Platformy analityczne dbające o prywatność, działające zgodnie z rygorystycznymi standardami ochrony danych.",
+                "outro": "Wszyscy zewnętrzni dostawcy usług są związani umowami powierzenia przetwarzania danych (DPA) lub standardami ochrony danych zgodnymi z RODO."
+            },
+            "where_data_is_stored": {
+                "heading": "Gdzie Twoje dane są przechowywane i przekazywane",
+                "content": "Jako studio z siedzibą w Polsce (UE), Twoje dane są przetwarzane głównie w ramach Europejskiego Obszaru Gospodarczego (EOG). W przypadkach, gdy usługi chmurowe przetwarzają dane poza EOG (np. infrastruktura z siedzibą w USA, taka jak Vercel lub Google), transfery danych są chronione na podstawie Standardowych Klauzul Umownych (SCC) lub Ram Ochrony Danych UE-USA (EU-U.S. Data Privacy Framework)."
+            },
+            "data_rights": {
+                "heading": "Twoje prawa do danych na mocy RODO",
+                "intro": "Zgodnie z unijnymi przepisami o ochronie danych przysługują Ci następujące prawa dotyczące Twoich danych osobowych:",
+                "right_to_access": "<bold>Prawo dostępu</bold>: Możesz zażądać kopii danych osobowych, które posiadamy na Twój temat.",
+                "right_to_rectification": "<bold>Prawo do sprostowania</bold>: Możesz poprosić nas o poprawienie nieprawidłowych lub niepełnych danych.",
+                "right_to_erasure": "<bold>Prawo do usunięcia danych</bold> (<i>Prawo do bycia zapomnianym</i>): Możesz zażądać usunięcia swoich danych osobowych z naszych systemów.",
+                "right_to_restrict_or_object": "<bold>Prawo do ograniczenia przetwarzania lub sprzeciwu</bold>: Możesz wnieść sprzeciw wobec przetwarzania przez nas Twoich danych na podstawie prawnie uzasadnionego interesu.",
+                "right_to_data_portability": "Prawo do przenoszenia danych: Możesz zażądać swoich danych w ustrukturyzowanym, maszynowo czytelnym formacie.",
+                "right_to_complaint": "<bold>Prawo do wniesienia skargi</bold>: Masz prawo wnieść skargę do organu nadzorczego. W Polsce jest to UODO (Urząd Ochrony Danych Osobowych, uodo.gov.pl).",
+                "outro": "Aby skorzystać z któregokolwiek z tych praw, po prostu wyślij wiadomość e-mail na adres contact@nevere.studio"
+            },
+            "data_security": {
+                "heading": "Bezpieczeństwo danych",
+                "content": "Traktujemy bezpieczeństwo danych bardzo poważnie. Stosujemy szyfrowanie HTTPS w całej domenie nevere.studio, używamy nowoczesnych nagłówków bezpieczeństwa Next.js i przechowujemy korespondencję w bezpiecznych systemach chronionych hasłem. Choć żaden system nie jest w 100% odporny na naruszenia, podejmujemy wszelkie uzasadnione środki techniczne i organizacyjne, aby chronić Twoje informacje."
+            },
+            "updates": {
+                "heading": "Aktualizacje niniejszej polityki",
+                "content": "Możemy od czasu do czasu aktualizować niniejszą Politykę Prywatności, aby odzwierciedlić zmiany w naszych rozwiązaniach technicznych lub wymogach prawnych. Najnowsza wersja będzie zawsze publikowana na tej stronie z zaktualizowaną datą <i>Ostatnia aktualizacja</i>."
+            }
+        }
     }
 }

@@ -141,5 +141,85 @@
         "content": {
             "page under construction": "page under construction"
         }
+    },
+
+    "privacy_policy": {
+        "metadata": {
+            "title": "Privacy Policy | Nevere Studio - Web Design & Development",
+            "description": "Transparent privacy policy for Nevere Studio. Learn how we handle contact form inquiries, analytics data, and your privacy under GDPR."
+        },
+        "content": {
+            "h1": "Privacy Policy",
+            "effective_date": "<bold>Effective Date</bold>: August 6, 2026",
+            "last_updated": "<bold>Last Updated</bold>: August 6, 2026",
+            "intro": ["At Nevere Studio (nevere.studio), we build clean, high-performance web applications without unnecessary bloat and we apply that exact same philosophy to your privacy.", "We don't sell your data, track you across the web for advertising, or hide behind endless pages of legal jargon. This policy explains what data we collect, why we collect it, how it's stored, and what your rights are under the EU General Data Protection Regulation (GDPR / RODO) and applicable privacy laws."],
+            "who_we_are": {
+                "heading": "Who We Are (Data Controller)",
+                "intro": "The controller responsible for processing your personal data on this website is:",
+                "brand": "<bold>Brand</bold>: Nevere Studio",
+                "founder": "<bold>Founder</bold> / <bold>Owner</bold>: Jakub Barczyński",
+                "location": "<bold>Location</bold>: Poland (European Union)",
+                "email": "<bold>Contact Email</bold>: contact@nevere.studio (alternatively jakub.barczynski@nevere.studio)",
+                "website": "<bold>Website</bold>: <ns>nevere.studio</ns>",
+                "ps": "If you have any questions about how your data is handled, you can email us directly at any time."
+            },
+            "what_and_how": {
+                "heading": "What Data We Collect & How We Use It",
+                "intro": "We only collect data when there is a clear, legitimate reason to do so. On <ns>nevere.studio</ns>, data collection falls into two categories:",
+                "contact": {
+                    "intro": "When you submit a project brief or reach out via our contact form, we collect the details you provide to us voluntarily.",
+                    "data_collected": "<bold>Data collected</bold>: Your name, email address, company name and industry, and project scope.",
+                    "why": "<bold>Why we need it</bold>: To evaluate your inquiry, discuss your project requirements, prepare proposals, and respond to you.",
+                    "legal_basis": "Legal basis (GDPR Art. 6(1)(b)): Processing is necessary to take steps at your request prior to entering into a contract.",
+                    "how_long_we_keep_it": "<bold>How long we keep it</bold>: We retain business communications for as long as necessary to fulfill your project or maintain business records (typically up to 3-5 years for tax and legal compliance in Poland). If we don't work together, you can ask us to delete your inquiry at any time."
+                },
+                "analytics": {
+                    "heading": "Website Analytics & Performance",
+                    "intro": "To keep our site fast, responsive, and working properly across devices, we collect basic, non-identifying technical analytics.",
+                    "data_collected": "<bold>Data collected</bold>: Anonymized IP addresses, browser type, device type, referral source, pages visited, and time spent on site.",
+                    "why": "<bold>Why we need it</bold>: To analyze traffic patterns, detect technical issues, improve page performance, and ensure smooth user navigation.",
+                    "analytics_providers": "<bold>Analytics Providers</bold>: We use privacy-focused analytics tool (Vercel Analytics).",
+                    "legal_basis": "<bold>Legal basis</bold> (GDPR Art. 6(1)(f)): Our legitimate interest in maintaining and optimizing a secure, high-performance web platform."
+                }
+            },
+            "cookies_and_tracking": {
+                "heading": "Cookies & Tracking Technologies",
+                "intro": "We keep cookie usage to a minimum.",
+                "essential_cookies": "<bold>Essential Cookies</bold>: Necessary for the core performance and security of Next.js and site hosting infrastructure.",
+                "analytics_cookies": "Analytics Cookies: Used to count page visits and traffic sources so we can measure performance.",
+                "outro": "You can configure your browser to block or alert you about cookies, but some parts of the site may not function properly as a result."
+            },
+            "who_we_share_data_with": {
+                "heading": "Who We Share Your Data With",
+                "intro": "We never sell, rent, or trade your personal data. We only share information with trusted infrastructure providers necessary to run this website and communicate with you:",
+                "hosting_and_cdn": "<bold>Hosting</bold> & <bold>CDN</bold>: Vercel Inc. (Global edge infrastructure hosting <ns>nevere.studio</ns>)",
+                "email_and_communication": "<bold>Email</bold> & <bold>Communication</bold>: Email Provider - Spaceship Inc (for managing incoming briefs and client messages)",
+                "analytics": "<bold>Analytics</bold>: Privacy-conscious analytics platforms operating under strict data protection standards.",
+                "outro": "All third-party service providers are bound by Data Processing Agreements (DPAs) or GDPR-compliant data protection standards."
+            },
+            "where_data_is_stored": {
+                "heading": "Where Your Data Is Stored & Transferred",
+                "content": "As a studio based in Poland (EU), your data is primarily processed within the European Economic Area (EEA). Where cloud services process data outside the EEA (such as US-based infrastructure like Vercel or Google), data transfers are protected under Standard Contractual Clauses (SCCs) or the EU-U.S. Data Privacy Framework."
+            },
+            "data_rights": {
+                "heading": "Your Data Rights Under GDPR",
+                "intro": "Under EU data protection laws, you have the following rights regarding your personal information:",
+                "right_to_access": "<bold>Right to Access</bold>: You can request a copy of the personal data we hold about you.",
+                "right_to_rectification": "<bold>Right to Rectification</bold>: You can ask us to correct inaccurate or incomplete data.",
+                "right_to_erasure": "<bold>Right to Erasure</bold> (<i>Right to be Forgotten</i>): You can request that we delete your personal information from our systems.",
+                "right_to_restrict_or_object": "<bold>Right to Restrict or Object</bold>: You can object to our processing of your data under legitimate interest grounds.",
+                "right_to_data_portability": "Right to Data Portability: You can request your data in a structured, machine-readable format.",
+                "right_to_complaint": "<bold>Right to File a Complaint</bold>: You have the right to lodge a complaint with a supervisory authority. In Poland, this is the UODO (Urząd Ochrony Danych Osobowych, uodo.gov.pl).",
+                "outro": "To exercise any of these rights, simply send an email to contact@nevere.studio"
+            },
+            "data_security": {
+                "heading": "Data Security",
+                "content": "We take data security seriously. We enforce HTTPS encryption across nevere.studio, utilize modern Next.js security headers, and store communications within secure, password-protected systems. While no system is 100% immune to breaches, we take all reasonable technical and organizational measures to safeguard your information."
+            },
+            "updates": {
+                "heading": "Updates to This Policy",
+                "content": "We may update this Privacy Policy from time to time to reflect changes in our technical setup or legal requirements. The latest version will always be published on this page with an updated <i>Last Updated</i> date."
+            }
+        }
     }
 }
