@@ -63,9 +63,8 @@ function Sidebar({ open, setSidebarOpen } : Props) {
             };
 
             document.addEventListener('keydown', handleKeyDown);
+            return () => window.removeEventListener('keydown', handleKeyDown);
         }
-
-        return () => window.removeEventListener('keydown', handleKeyDown);
     }, [open]);
 
     const t = useTranslations('global.links');
@@ -101,8 +100,6 @@ function Sidebar({ open, setSidebarOpen } : Props) {
             <nav className={s.Links}>
                 { links.map(link => createLink(link, links.indexOf(link))) }
             </nav>
-            <div className={s.Lang}>
-            </div>
         </div>
     );
 }
