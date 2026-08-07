@@ -171,7 +171,7 @@
                     "intro": "Gdy przesyłasz brief projektu lub kontaktujesz się z nami za pomocą formularza kontaktowego, zbieramy dane, które przekazujesz nam dobrowolnie.",
                     "data_collected": "<bold>Zbierane dane</bold>: Twoje imię i nazwisko, adres e-mail, nazwa firmy i branża oraz zakres projektu.",
                     "why": "<bold>Dlaczego ich potrzebujemy</bold>: Aby przeanalizować Twoje zapytanie, omówić wymagania dotyczące projektu, przygotować propozycje i odpowiedzieć na Twoją wiadomość.",
-                    "legal_basis": "Podstawa prawna (Art. 6 ust. 1 lit. b RODO): Przetwarzanie jest niezbędne do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy.",
+                    "legal_basis": "<bold>Podstawa prawna</bold> (Art. 6 ust. 1 lit. b RODO): Przetwarzanie jest niezbędne do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy.",
                     "how_long_we_keep_it": "<bold>Jak długo je przechowujemy</bold>: Przechowujemy korespondencję biznesową tak długo, jak jest to konieczne do realizacji Twojego projektu lub prowadzenia dokumentacji biznesowej (zazwyczaj do 3-5 lat ze względu na wymogi podatkowe i prawne w Polsce). Jeśli nie podejmiemy współpracy, w każdej chwili możesz poprosić nas o usunięcie Twojego zapytania."
                 },
                 "analytics": {
@@ -187,7 +187,7 @@
                 "heading": "Pliki cookie i technologie śledzące",
                 "intro": "Ograniczamy użycie plików cookie do minimum.",
                 "essential_cookies": "<bold>Niezbędne pliki cookie</bold>: Konieczne do podstawowego działania i bezpieczeństwa Next.js oraz infrastruktury hostingowej strony.",
-                "analytics_cookies": "Analityczne pliki cookie: Używane do zliczania wizyt na stronie i źródeł ruchu, dzięki czemu możemy mierzyć wydajność.",
+                "analytics_cookies": "<bold>Analityczne pliki cookie</bold>: Używane do zliczania wizyt na stronie i źródeł ruchu, dzięki czemu możemy mierzyć wydajność.",
                 "outro": "Możesz skonfigurować swoją przeglądarkę tak, aby blokowała pliki cookie lub ostrzegała o nich, ale w rezultacie niektóre części strony mogą nie działać prawidłowo."
             },
             "who_we_share_data_with": {

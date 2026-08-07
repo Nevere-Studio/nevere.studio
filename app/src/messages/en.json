@@ -171,7 +171,7 @@
                     "intro": "When you submit a project brief or reach out via our contact form, we collect the details you provide to us voluntarily.",
                     "data_collected": "<bold>Data collected</bold>: Your name, email address, company name and industry, and project scope.",
                     "why": "<bold>Why we need it</bold>: To evaluate your inquiry, discuss your project requirements, prepare proposals, and respond to you.",
-                    "legal_basis": "Legal basis (GDPR Art. 6(1)(b)): Processing is necessary to take steps at your request prior to entering into a contract.",
+                    "legal_basis": "<bold>Legal basis</bold> (GDPR Art. 6(1)(b)): Processing is necessary to take steps at your request prior to entering into a contract.",
                     "how_long_we_keep_it": "<bold>How long we keep it</bold>: We retain business communications for as long as necessary to fulfill your project or maintain business records (typically up to 3-5 years for tax and legal compliance in Poland). If we don't work together, you can ask us to delete your inquiry at any time."
                 },
                 "analytics": {
@@ -187,7 +187,7 @@
                 "heading": "Cookies & Tracking Technologies",
                 "intro": "We keep cookie usage to a minimum.",
                 "essential_cookies": "<bold>Essential Cookies</bold>: Necessary for the core performance and security of Next.js and site hosting infrastructure.",
-                "analytics_cookies": "Analytics Cookies: Used to count page visits and traffic sources so we can measure performance.",
+                "analytics_cookies": "<bold>Analytics Cookies</bold>: Used to count page visits and traffic sources so we can measure performance.",
                 "outro": "You can configure your browser to block or alert you about cookies, but some parts of the site may not function properly as a result."
             },
             "who_we_share_data_with": {
