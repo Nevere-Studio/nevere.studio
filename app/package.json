@@ -15,6 +15,7 @@
     "@paper-design/shaders-react": "^0.0.77",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "country-flag-icons": "^1.6.20",
     "gsap": "^3.15.0",
     "motion": "^12.42.2",
     "next": "^16.2.12",

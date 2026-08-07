@@ -7,15 +7,54 @@
     background: #000a;
     backdrop-filter: blur(6px) !important;
     -webkit-backdrop-filter: blur(4px);
-    display: flex;
     top: -100%;
     z-index: 999;
     padding-top: 144px;
+    @include flexColumn(0);
 
     .Links {
         @include flexColumn(1rem);
         width: 100%;
         @include flexAlign();
         padding: 2rem 0;
+    }
+}
+
+.LangDropdown {
+    background: none;
+    margin: 0 auto 2rem auto;
+    background: $midnightAbyss;
+
+    .trigger {
+        background: none;
+        border: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.4rem;
+        
+        .triangle {
+            height: 0.5rem;
+            aspect-ratio: 2 / 1;
+            background: white;
+            opacity: 0.75;
+            clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+            margin-left: 0.5rem;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include flexColumn(0);
+        align-items: center;
+        overflow: hidden;
+
+        li {
+            padding-bottom: 0.5rem;
+        }
     }
 }

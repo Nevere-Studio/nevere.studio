@@ -10,6 +10,7 @@ import { El, Ref } from '@/utils/types';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { revealWipe } from '@/utils/gsap/animations';
+import LangDropdown from './LangDropdown';
 
 const s = styles;
 
@@ -100,6 +101,7 @@ function Sidebar({ open, setSidebarOpen } : Props) {
             <nav className={s.Links}>
                 { links.map(link => createLink(link, links.indexOf(link))) }
             </nav>
+            <LangDropdown />
         </div>
     );
 }
