@@ -149,11 +149,10 @@
             "description": "Transparent privacy policy for Nevere Studio. Learn how we handle contact form inquiries, analytics data, and your privacy under GDPR."
         },
         "content": {
-            "page_under_construction": "Page Under Construction",
             "h1": "Privacy Policy",
             "effective_date": "<bold>Effective Date</bold>: August 6, 2026",
             "last_updated": "<bold>Last Updated</bold>: August 6, 2026",
-            "intro": ["At Nevere Studio (nevere.studio), we build clean, high-performance web applications without unnecessary bloat and we apply that exact same philosophy to your privacy.", "We don't sell your data, track you across the web for advertising, or hide behind endless pages of legal jargon. This policy explains what data we collect, why we collect it, how it's stored, and what your rights are under the EU General Data Protection Regulation (GDPR / RODO) and applicable privacy laws."],
+            "intro": ["At Nevere Studio (<ns>nevere.studio</ns>), we build clean, high-performance web applications without unnecessary bloat and we apply that exact same philosophy to your privacy.", "We don't sell your data, track you across the web for advertising, or hide behind endless pages of legal jargon. This policy explains what data we collect, why we collect it, how it's stored, and what your rights are under the EU General Data Protection Regulation (GDPR / RODO) and applicable privacy laws."],
             "who_we_are": {
                 "heading": "Who We Are (Data Controller)",
                 "intro": "The controller responsible for processing your personal data on this website is:",
@@ -168,6 +167,7 @@
                 "heading": "What Data We Collect & How We Use It",
                 "intro": "We only collect data when there is a clear, legitimate reason to do so. On <ns>nevere.studio</ns>, data collection falls into two categories:",
                 "contact": {
+                    "heading": "Contact",
                     "intro": "When you submit a project brief or reach out via our contact form, we collect the details you provide to us voluntarily.",
                     "data_collected": "<bold>Data collected</bold>: Your name, email address, company name and industry, and project scope.",
                     "why": "<bold>Why we need it</bold>: To evaluate your inquiry, discuss your project requirements, prepare proposals, and respond to you.",

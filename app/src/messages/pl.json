@@ -149,11 +149,10 @@
             "description": "Przejrzysta polityka prywatności Nevere Studio. Dowiedz się, jak przetwarzamy zapytania z formularza kontaktowego, dane analityczne i dbamy o Twoją prywatność zgodnie z RODO."
         },
         "content": {
-            "page_under_construction": "Strona W Budowie",
             "h1": "Polityka Prywatności",
             "effective_date": "<bold>Data wejścia w życie</bold>: 6 sierpnia 2026",
             "last_updated": "<bold>Ostatnia aktualizacja</bold>: 6 sierpnia 2026",
-            "intro": ["W Nevere Studio (nevere.studio) tworzymy czyste, wydajne aplikacje internetowe bez zbędnego obciążenia i dokładnie tę samą filozofię stosujemy do Twojej prywatności.", "Nie sprzedajemy Twoich danych, nie śledzimy Cię w sieci w celach reklamowych ani nie ukrywamy się za niezliczonymi stronami prawniczego bełkotu. Niniejsza polityka wyjaśnia, jakie dane zbieramy, dlaczego je zbieramy, jak są przechowywane oraz jakie prawa przysługują Ci na mocy ogólnego rozporządzenia UE o ochronie danych (RODO / GDPR) i obowiązujących przepisów o ochronie prywatności."],
+            "intro": ["W Nevere Studio (<ns>nevere.studio</ns>) tworzymy czyste, wydajne aplikacje internetowe bez zbędnego obciążenia i dokładnie tę samą filozofię stosujemy do Twojej prywatności.", "Nie sprzedajemy Twoich danych, nie śledzimy Cię w sieci w celach reklamowych ani nie ukrywamy się za niezliczonymi stronami prawniczego bełkotu. Niniejsza polityka wyjaśnia, jakie dane zbieramy, dlaczego je zbieramy, jak są przechowywane oraz jakie prawa przysługują Ci na mocy ogólnego rozporządzenia UE o ochronie danych (RODO / GDPR) i obowiązujących przepisów o ochronie prywatności."],
             "who_we_are": {
                 "heading": "Kim jesteśmy (Administrator danych)",
                 "intro": "Administratorem odpowiedzialnym za przetwarzanie Twoich danych osobowych na tej stronie internetowej jest:",
@@ -168,6 +167,7 @@
                 "heading": "Jakie dane zbieramy i jak je wykorzystujemy",
                 "intro": "Zbieramy dane tylko wtedy, gdy istnieje do tego wyraźny, uzasadniony powód. Na stronie <ns>nevere.studio</ns> zbieranie danych dzieli się na dwie kategorie:",
                 "contact": {
+                    "heading": "Kontakt",
                     "intro": "Gdy przesyłasz brief projektu lub kontaktujesz się z nami za pomocą formularza kontaktowego, zbieramy dane, które przekazujesz nam dobrowolnie.",
                     "data_collected": "<bold>Zbierane dane</bold>: Twoje imię i nazwisko, adres e-mail, nazwa firmy i branża oraz zakres projektu.",
                     "why": "<bold>Dlaczego ich potrzebujemy</bold>: Aby przeanalizować Twoje zapytanie, omówić wymagania dotyczące projektu, przygotować propozycje i odpowiedzieć na Twoją wiadomość.",

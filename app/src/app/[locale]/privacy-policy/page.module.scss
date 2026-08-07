@@ -1,15 +1,50 @@
 @use '../../../utils/variables.scss' as *;
 
-.Hero {
-    @include flexAlign(center, center, center);
+.PrivacyPolicy {
+    padding: 20vh 20vw;
+    background: $midnightAbyss;
+    font-weight: 400;
+    @include flexColumn(10vh);
+
+    strong {
+        font-weight: 600;
+    }
+
+    .num {
+        font-weight: 100;
+    }
 
     h1 {
-        color: white;
-        font-family: $googleCode;
-        font-weight: 200;
+        font-size: 7vw;
+        font-weight: 300;
+        position: relative;
 
-        .pointer {
-            @include blink(1.5s);
+        &::after {
+            content: '';
+            width: 30%;
+            height: 4px;
+            background: white;
+            position: absolute;
+            bottom: -10%;
+            left: 0%;
+
+            @supports (corner-shape: bevel) {
+                corner-shape: bevel;
+                border-radius: 0 0 4px 0;
+            }
         }
+    }
+
+    h2 {
+        font-weight: 300;
+    }
+
+    h3 {
+        font-weight: 400;
+    }
+
+    ol {
+        list-style: none;
+        @include flexColumn(10vh);
     }
 }
