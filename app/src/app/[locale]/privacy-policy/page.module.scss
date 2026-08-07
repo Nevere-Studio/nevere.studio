@@ -52,44 +52,4 @@
     ul {
         @include flexColumn(0.5rem);
     }
-
-    a {
-        color: white;
-        font-family: $googleCode;
-        --underline-1-width: 100%;
-        --underline-2-width: 0%;
-        position: relative;
-        text-decoration: none;
-        transition: text-shadow 0.3s ease-in-out;
-
-        &:hover {
-            --underline-1-width: 0%;
-            --underline-2-width: 100%;
-            text-shadow: 0 0 5px white;
-        }
-
-        &::before, &::after {
-            content: '';
-            position: absolute;
-        }
-
-        &::before {
-            bottom: calc(-3% - 1px);
-            left: 0;
-            width: var(--underline-1-width);
-            height: 1px;
-            background: white;
-            opacity: 0.75;
-            transition: width 0.3s ease-in;
-        }
-
-        &::after {
-            bottom: calc(-3% + 1px);
-            right: 0;
-            width: var(--underline-2-width);
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease-out;
-        }
-    }
 }

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import type { El } from '@/utils/types';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 
 // I M A G E S
 import Image from 'next/image';
@@ -478,6 +479,8 @@ function ContactForm() {
                             <p className={s.tag}>{ t('summary.contact') }</p>
                             <p className={`${s.selected} ${convertedData['Contact Method'] === notSpecified ? s.invalid : ''}`}>{ convertedData['Contact Method'] }</p>
                         </div>
+
+                        <p className={s.PrivacyPolicy}>{ t('summary.privacy_policy_mention.0') }<Link href="/privacy-policy" className="a">{ t('summary.privacy_policy_mention.1') }</Link></p>
                     </div>
                 </div>
                 <SubmitBtn disabled={isSubmitting || !dataValid} className={s.submitButton} />
