@@ -5,7 +5,8 @@
             "about": "o_nas",
             "contact": "kontakt",
             "experience": "doświadczenie",
-            "services": "usługi"
+            "services": "usługi",
+            "privacy_policy": "polityka_prywatności"
         },
         "footer": {
             "author": {

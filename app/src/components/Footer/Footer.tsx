@@ -28,11 +28,12 @@ function Footer() {
     const t = useTranslations('global');
 
     const links: LinkTemplate[] = [
-        { href: '/',           label: t('links.home')       },
+        { href: '/',               label: t('links.home')          },
         // { href: '/about',      label: t('links.about')      },
         // { href: '/experience', label: t('links.experience') },
         // { href: '/services',   label: t('links.services')   },
-        { href: '/contact',    label: t('links.contact')    }
+        { href: '/contact',        label: t('links.contact')       },
+        { href: '/privacy-policy', label: t('links.privacy_policy')}
     ];
 
     const linksRef = useRef<(El.A | null)[]>([]);

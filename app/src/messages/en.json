@@ -5,7 +5,8 @@
             "about": "about_us",
             "contact": "contact_us",
             "experience": "our_experience",
-            "services": "our_services"
+            "services": "our_services",
+            "privacy_policy": "privacy_policy"
         },
         "footer": {
             "author": {
