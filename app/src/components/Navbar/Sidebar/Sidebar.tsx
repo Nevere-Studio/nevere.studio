@@ -2,7 +2,7 @@
 
 import styles from './Sidebar.module.scss';
 import CypherLink from '@/components/links/cypher';
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { LinkTemplate } from '@/utils/types';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -56,6 +56,18 @@ function Sidebar({ open, setSidebarOpen } : Props) {
         }
     }, { dependencies: [open], scope: sidebar });
 
+    useEffect(() => {
+        if (open) {
+            const handleKeyDown = (e: KeyboardEvent) => {
+                if (e.key === 'Escape') setSidebarOpen(false);
+            };
+
+            document.addEventListener('keydown', handleKeyDown);
+        }
+
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [open]);
+
     const t = useTranslations('global.links');
 
     const links: LinkTemplate[] = useMemo(() => [
@@ -89,6 +101,8 @@ function Sidebar({ open, setSidebarOpen } : Props) {
             <nav className={s.Links}>
                 { links.map(link => createLink(link, links.indexOf(link))) }
             </nav>
+            <div className={s.Lang}>
+            </div>
         </div>
     );
 }
